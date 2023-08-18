@@ -24,6 +24,19 @@
   cursor: pointer;
 
   &:hover {
-    background: lightgray;
+    background: $colorHover;
   }
+}
+
+.active {
+  color: $colorText
+}
+
+.inactive {
+  color: $colorTextSecondary
+}
+
+.today {
+  background: $colorPrimary;
+  color: $colorBackground
 }

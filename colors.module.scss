@@ -1,9 +1,17 @@
-$colorText: black;
+$colorPrimary: #1a73e8;
+$colorBackground: white;
+$colorText: #414548;
 $colorTextSecondary: #70757a;
 $colorBorder: #dadce0;
+$colorTransparent: transparent;
+$colorHover: lightgray;
 
 :export {
+  colorPrimary: $colorPrimary;
+  colorBackground: $colorBackground;
   colorText: $colorText;
   colorTextSecondary: $colorTextSecondary;
   colorBorder: $colorBorder;
+  colorTransparent: $colorTransparent;
+  colorHover: $colorHover
 }
