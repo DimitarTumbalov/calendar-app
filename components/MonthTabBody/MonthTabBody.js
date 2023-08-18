@@ -1,12 +1,17 @@
+'use client';
+
 import React from 'react';
 import styles from './MonthTabBody.module.scss';
 import MonthTabBodyItem from '../MonthTabBodyItem/MonthTabBodyItem';
+import { generateCalendarMonth } from '@/helpers/Utils';
 
 const MonthTabBody = () => {
+  const calendar = generateCalendarMonth(2023, 7);
+
   return (
     <div className={styles.container}>
       {
-        [...Array(35).keys()].map((e, index) => <MonthTabBodyItem key={index} index={index}/>)
+        calendar.map((item, index) => <MonthTabBodyItem key={index} index={index} item={item}/>)
       }
     </div>
   )

@@ -1,5 +1,9 @@
+$colorText: black;
+$colorTextSecondary: #70757a;
 $colorBorder: #dadce0;
 
 :export {
-  colorBorder: $colorBorder,
+  colorText: $colorText;
+  colorTextSecondary: $colorTextSecondary;
+  colorBorder: $colorBorder;
 }

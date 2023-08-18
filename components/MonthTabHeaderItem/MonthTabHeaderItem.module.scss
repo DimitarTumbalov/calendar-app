@@ -1,4 +1,11 @@
+@import '../../colors.module.scss';
+
 .container {
-  flex: 1;
   text-align: center;
+  flex-basis: calc(100% / 7);
+  box-sizing: border-box;
+  padding-top: 8px;
+  color: $colorTextSecondary;
+  font-size: 11px;
+  font-weight: 500;
 }
