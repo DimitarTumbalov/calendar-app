@@ -1,7 +1,7 @@
-import Header from '@/components/Header/Header'
-import styles from './page.module.scss'
-import SideMenu from '@/components/SideMenu/SideMenu'
-import CalendarTab from '@/components/Calendar/CalendarTab'
+import Header from '@/components/Header/Header';
+import styles from './page.module.scss';
+import SideMenu from '@/components/SideMenu/SideMenu';
+import MonthTab from '@/components/MonthTab/MonthTab';
 
 export default function Home() {
   return (
@@ -9,7 +9,7 @@ export default function Home() {
       <Header />
       <div className={styles.content}>
         <SideMenu />
-        <CalendarTab />
+        <MonthTab />
       </div>
     </main>
   )

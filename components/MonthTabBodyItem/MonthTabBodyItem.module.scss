@@ -1,0 +1,10 @@
+@import '../../colors.module.scss';
+
+.container {
+  box-sizing: border-box;
+  width: calc(1/7 * 100%);
+  border-bottom: 1px solid $colorBorder;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
