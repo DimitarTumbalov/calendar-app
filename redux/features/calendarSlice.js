@@ -7,7 +7,6 @@ const curDate = new Date();
 const initialState = {
   year: curDate.getFullYear(),
   month: curDate.getMonth(),
-  day: curDate.getDate(),
 }
 
 const calendarSlice = createSlice({

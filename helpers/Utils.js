@@ -1,3 +1,5 @@
+import { MONTHS_SHORT } from "./Constants";
+
   export const generateCalendarMonth = (year, month) => {
     const calendar = []; 
 
@@ -12,15 +14,12 @@
     for (let i = firstWeekDay - 1; i >= 0; i--) {
       const simpleDate = prevMonthLastDate - i;
 
-
-      const date = month == 1 ? 
-        new Date(year - 1, 12, simpleDate) : new Date(year, month - 1, simpleDate);
+      const date = month == 0 ? 
+        new Date(year - 1, 11, simpleDate) : new Date(year, month - 1, simpleDate);
 
       calendar.push({
-        isActive: false,
         date: date,
         simpleDate,
-        isToday: curDateString == date.toDateString()
       });
     }
 
@@ -28,27 +27,35 @@
     for (let i = 1; i <= lastDate; i++) {
       const date = new Date(year, month, i);
 
-      calendar.push({
+      const item = {
         isActive: true,
         date,
-        simpleDate: i,
-        isToday: curDateString == date.toDateString()
-      });
+        simpleDate: i == 1 ? `${MONTHS_SHORT[month]} ${i}` : i, 
+      }
+
+      if(i == 1)
+        item.isFirst = true;
+
+      calendar.push(item);
     }
 
 
     //Add the first dates of the next month
     for (let i = lastWeekDay + 1; i <= 6; i++) {
       const simpleDate = i - lastWeekDay;
-      const date = new Date(year, month + 1, simpleDate)
+      const date = month = 11 ?
+        new Date(year + 1, 0, simpleDate) : new Date(year, month + 1, simpleDate)
 
       calendar.push({
-        isActive: false,
         date,
         simpleDate,
-        isToday: curDateString == date.toDateString()
       });
     }
+
+    const itemToday = calendar.find(i => i.date.toDateString() == curDateString);
+
+    if(itemToday)
+      itemToday.isToday = true;
 
     return calendar;
 }

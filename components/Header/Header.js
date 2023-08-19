@@ -8,7 +8,7 @@ import ArrowLeftIcon from '../ArrowLeftIcon/ArrowLeftIcon';
 import ArrowRightIcon from '../ArrowRightIcon/ArrowRightIcon';
 import { useDispatch, useSelector } from 'react-redux';
 import { set } from '@/redux/features/calendarSlice';
-import { MONTHS_FULL } from '@/helpers/Constants';
+import { MONTHS } from '@/helpers/Constants';
 
 const Header = () => {
   const calendar = useSelector((state) => state.calendar);
@@ -25,10 +25,10 @@ const Header = () => {
   const handlePrevBtnClick = () => {
     let newCalendar;
 
-    if(calendar.month == 1){
+    if(calendar.month == 0){
       newCalendar = {
         year: calendar.year - 1,
-        month: 12,
+        month: 11,
       }
     }else{
       newCalendar = {
@@ -42,10 +42,10 @@ const Header = () => {
   const handleNextBtnClick = () => {
     let newCalendar;
 
-    if(calendar.month == 12){
+    if(calendar.month == 11){
       newCalendar = {
         year: calendar.year + 1,
-        month: 1,
+        month: 0,
       }
     }else{
       newCalendar = {
@@ -84,7 +84,7 @@ const Header = () => {
           color={colors.colorText} />
       </button>
 
-      <p className={styles.calendarMonth}>{MONTHS_FULL[calendar.month]} {calendar.year}</p>
+      <p className={styles.calendarMonth}>{MONTHS[calendar.month]} {calendar.year}</p>
     </div>
   )
 }
