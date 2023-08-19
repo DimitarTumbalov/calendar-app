@@ -4,19 +4,18 @@
   display: flex;
   flex-direction: row;
   width: '100%';
-  padding: 16px 24px;
+  padding: 1rem 1.5rem;
   border-bottom: 1px solid $colorBorder;
   align-items: center;
 }
 
 .todayBtn {
-  margin-left: 48px;
+  margin-left: 3rem;
   color: $colorText;
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 0.9rem;
   border: 1px solid $colorBorder;
-  border-radius: 4px;
-  padding: 8px 12px;
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.75rem;
   background: $colorBackground;
   cursor: pointer;
 
@@ -31,8 +30,8 @@
   background: $colorTransparent;
   border: 0;
   border-radius: 50%;
-  width: 36px;
-  height: 36px;
+  width: 2.25rem;
+  height: 2.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,11 +42,11 @@
 }
 
 .calendarLeftNavBtn {
-  margin-left: 24px;
+  margin-left: 1.5rem;
 }
 
 .calendarMonth {
-  margin-left: 24px;
+  margin-left: 1.5rem;
   color: $colorText;
-  font-size: 20px;
+  font-size: 1.4rem;
 }
