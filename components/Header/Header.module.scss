@@ -13,17 +13,32 @@
   margin-left: 48px;
   color: $colorText;
   font-size: 14px;
-  font-weight: bold;
   border: 1px solid $colorBorder;
   border-radius: 4px;
   padding: 8px 12px;
   background: $colorBackground;
   cursor: pointer;
+
+  &:hover {
+    background: $colorHover;
+  }
 }
 
 .calendarNavBtn {
-  padding: 4px;
   cursor: pointer;
+  pointer-events: all;
+  background: $colorTransparent;
+  border: 0;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: $colorHover;
+  }
 }
 
 .calendarLeftNavBtn {
@@ -34,5 +49,4 @@
   margin-left: 24px;
   color: $colorText;
   font-size: 20px;
-  font-weight: 500;
 }

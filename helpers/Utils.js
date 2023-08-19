@@ -11,7 +11,10 @@
     //Add the last dates of the previous month
     for (let i = firstWeekDay - 1; i >= 0; i--) {
       const simpleDate = prevMonthLastDate - i;
-      const date = new Date(year, month - 1, simpleDate)
+
+
+      const date = month == 1 ? 
+        new Date(year - 1, 12, simpleDate) : new Date(year, month - 1, simpleDate);
 
       calendar.push({
         isActive: false,
