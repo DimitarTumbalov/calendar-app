@@ -13,12 +13,12 @@ const calendarSlice = createSlice({
   name: 'calendar',
   initialState,
   reducers: {
-    set: (state, action) => ({
+    setCalendar: (state, action) => ({
       ...state,
       ...action.payload
     })
   }
 })
 
-export const { set } = calendarSlice.actions;
+export const { setCalendar } = calendarSlice.actions;
 export default calendarSlice.reducer;

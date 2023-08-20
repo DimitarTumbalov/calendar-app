@@ -7,7 +7,7 @@ import CalendarLogo from '../CalendarLogo/CalendarLogo';
 import ArrowLeftIcon from '../ArrowLeftIcon/ArrowLeftIcon';
 import ArrowRightIcon from '../ArrowRightIcon/ArrowRightIcon';
 import { useDispatch, useSelector } from 'react-redux';
-import { set } from '@/redux/features/calendarSlice';
+import { setCalendar } from '@/redux/features/calendarSlice';
 import { MONTHS } from '@/helpers/Constants';
 
 const Header = () => {
@@ -16,7 +16,7 @@ const Header = () => {
 
   const handleTodayClick = () => {
     const curDate = new Date();
-    dispatch(set({
+    dispatch(setCalendar({
       year: curDate.getFullYear(),
       month: curDate.getMonth()
     }))
@@ -36,7 +36,7 @@ const Header = () => {
       }
     }
 
-    dispatch(set(newCalendar));
+    dispatch(setCalendar(newCalendar));
   }
 
   const handleNextBtnClick = () => {
@@ -53,7 +53,7 @@ const Header = () => {
       }
     }
 
-    dispatch(set(newCalendar));
+    dispatch(setCalendar(newCalendar));
   }
 
   return (

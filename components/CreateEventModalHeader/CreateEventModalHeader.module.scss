@@ -1,0 +1,11 @@
+@import '../../colors.module.scss';
+.container {
+  display: flex;
+  flex-direction: row-reverse;
+  background: $colorSecondary;
+  padding: 0.5rem;
+}
+
+.closeBtn {
+
+}

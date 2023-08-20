@@ -1,4 +1,5 @@
 $colorPrimary: #1a73e8;
+$colorSecondary: #f1f3f4;
 $colorBackground: white;
 $colorText: #414548;
 $colorTextSecondary: #70757a;
@@ -8,6 +9,7 @@ $colorHover: lightgray;
 
 :export {
   colorPrimary: $colorPrimary;
+  colorSecondary: $colorSecondary;
   colorBackground: $colorBackground;
   colorText: $colorText;
   colorTextSecondary: $colorTextSecondary;
