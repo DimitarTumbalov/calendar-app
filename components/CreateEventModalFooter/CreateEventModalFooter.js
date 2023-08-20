@@ -4,7 +4,9 @@ import styles from './CreateEventModalFooter.module.scss';
 const CreateEventModalFooter = () => {
   return (
     <div className={styles.container}>
-      <button>Save</button>
+      <button className={styles.saveBtn}>
+        Save
+      </button>
     </div>
   )
 }

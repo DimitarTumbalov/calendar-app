@@ -1,4 +1,24 @@
+@import '../colors.module.scss';
+
 * {
   margin: 0;
   padding: 0;
+}
+
+textarea, input {
+  font-family: inherit;
+  border: 0;
+  border-radius: 0.25rem;
+  outline: none;
+  box-sizing: border-box;
+  caret-color: $colorPrimary;
+  border-bottom: 2px solid $colorSecondary;
+
+  &:focus {
+    border-bottom: 2px solid $colorPrimary;
+  }
+}
+
+button {
+  border: 0
 }
