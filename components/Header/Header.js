@@ -1,14 +1,14 @@
 'use client';
 
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import styles from './Header.module.scss';
 import colors from '../../colors.module.scss';
-import CalendarLogo from '../CalendarLogo/CalendarLogo';
-import ArrowLeftIcon from '../ArrowLeftIcon/ArrowLeftIcon';
-import ArrowRightIcon from '../ArrowRightIcon/ArrowRightIcon';
-import { useDispatch, useSelector } from 'react-redux';
 import { setCalendar } from '@/redux/features/calendarSlice';
 import { MONTHS } from '@/helpers/Constants';
+import { CalendarLogo } from '..';
+import { ArrowLeftIcon, ArrowRightIcon } from '../icons';
 
 const Header = () => {
   const calendar = useSelector((state) => state.calendar);

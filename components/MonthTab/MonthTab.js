@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './MonthTab.module.scss';
-import MonthTabHeader from '../MonthTabHeader/MonthTabHeader';
-import MonthTabBody from '../MonthTabBody/MonthTabBody';
+import { MonthTabHeader,  MonthTabBody} from '..';
 
 const MonthTab = () => {
   return (

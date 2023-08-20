@@ -1,8 +1,8 @@
-import ReduxProvider from '@/redux/ReduxProvider'
-import './globals.scss'
-import { Inter } from 'next/font/google'
+import ReduxProvider from '@/redux/ReduxProvider';
+import './globals.scss';
+import { Roboto_Flex } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'] })
+const roboto = Roboto_Flex({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Calendar App',
@@ -12,7 +12,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={roboto.className}>
         <ReduxProvider>
           {children}
         </ReduxProvider>

@@ -1,9 +1,10 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+
 import styles from './CreateEventModalHeader.module.scss';
 import colors from '../../colors.module.scss';
-import { useDispatch } from 'react-redux';
 import { setModal } from '@/redux/features/modalSlice';
-import CloseIcon from '../CloseIcon/CloseIcon';
+import { CloseIcon } from '../icons';
 
 const CreateEventModalHeader = () => {
   const dispatch = useDispatch();

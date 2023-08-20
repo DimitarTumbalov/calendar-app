@@ -1,8 +1,9 @@
 import React from 'react';
-import styles from './SideMenu.module.scss';
-import CreateIcon from '../CreateIcon/CreateIcon';
 import { useDispatch } from 'react-redux';
+
+import styles from './SideMenu.module.scss';
 import { setModal } from '@/redux/features/modalSlice';
+import { CreateIcon } from '../icons';
 
 const SideMenu = () => {
   const dispatch = useDispatch();

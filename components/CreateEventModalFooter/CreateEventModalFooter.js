@@ -1,10 +1,12 @@
 import React from 'react';
 import styles from './CreateEventModalFooter.module.scss';
 
-const CreateEventModalFooter = () => {
+const CreateEventModalFooter = ({onSave}) => {
   return (
     <div className={styles.container}>
-      <button className={styles.saveBtn}>
+      <button 
+        className={styles.saveBtn}
+        onClick={onSave}>
         Save
       </button>
     </div>

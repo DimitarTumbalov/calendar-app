@@ -3,9 +3,18 @@ import path from 'path';
 import { NextResponse } from "next/server";
 
 export const POST = async(req) => {
-  const res = req.json();
+  const event = await req.json();
 
-  console.log(res.body)
+  //Get events array
+  const filePath = path.join(process.cwd(), 'data', 'events.json');
+  const jsonString = await fs.readFile(filePath, 'utf8');
+  const events = JSON.parse(jsonString);
+ 
+  //Add the new event
+  events.push(event);
+  await fs.writeFile(filePath, JSON.stringify(events, null, 2));
 
-  return NextResponse.json({})
+  return NextResponse.json({
+    message: 'Event successfullt created!'
+  });
 }

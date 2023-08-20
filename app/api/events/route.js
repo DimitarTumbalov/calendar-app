@@ -1,6 +1,5 @@
 import { promises as fs } from 'fs';
 import path from 'path';
-
 import { NextResponse } from "next/server";
 
 export const GET = async() => {
