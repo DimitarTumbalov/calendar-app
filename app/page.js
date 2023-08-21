@@ -15,9 +15,8 @@ export default function Home() {
       <div className={styles.content}>
         <SideMenu />
         {tab == TABS[0] && <DayTab /> }
-        {tab == TABS[1] && <WeekTab /> }
-        {tab == TABS[2] && <MonthTab /> }
-        {tab == TABS[3] && <YearTab /> }
+        {tab == TABS[1] && <MonthTab /> }
+        {tab == TABS[2] && <YearTab /> }
       </div>
       <CreateEventModal show={modal == 'createEvent'}/>
     </main>

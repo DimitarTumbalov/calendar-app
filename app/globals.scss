@@ -25,3 +25,22 @@ button {
 button, textarea, input {
   font-family: inherit;
 }
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: $colorTransparent;
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0.25rem;
+  background: $colorBorder; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $colorHover; 
+}

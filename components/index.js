@@ -13,8 +13,7 @@ export {default as SmallCalendarHeader} from './SmallCalendarHeader/SmallCalenda
 
 //TABS
 export {default as DayTab} from './tabs/DayTab/DayTab';
-
-export {default as WeekTab} from './tabs/WeekTab/WeekTab';
+export {default as DayTabItem} from './tabs/DayTabItem/DayTabItem';
 
 export {default as MonthTab} from './tabs/MonthTab/MonthTab';
 export {default as MonthTabItem} from './tabs/MonthTabItem/MonthTabItem';

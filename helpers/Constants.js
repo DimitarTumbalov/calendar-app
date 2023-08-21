@@ -52,7 +52,6 @@ export const MONTHS = {
 
 export const TABS = [
   'Day',
-  'Week',
   'Month',
   'Year'
 ]
