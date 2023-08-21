@@ -45,11 +45,17 @@ export const generateCalendarMonth = (year, month) => {
     const date = month = 11 ?
       new Date(year + 1, 0, simpleDate) : new Date(year, month + 1, simpleDate)
 
-    calendar.push({
+    const item = {
       date,
       simpleDate,
-    });
+    }
+
+    if(simpleDate == 1)
+      item.isFirst = true;
+
+    calendar.push(item);
   }
+
 
   const itemToday = calendar.find(i => i.date.toDateString() == curDateString);
 

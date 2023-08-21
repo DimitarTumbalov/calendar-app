@@ -6,3 +6,4 @@ export {default as CreateIcon} from './CreateIcon/CreateIcon';
 export {default as DescriptionIcon} from './DescriptionIcon/DescriptionIcon';
 export {default as LabelIcon} from './LabelIcon/LabelIcon';
 export {default as TimeIcon} from './TimeIcon/TimeIcon';
+export {default as DropDownIcon} from './DropDownIcon/DropDownIcon';

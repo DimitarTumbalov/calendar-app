@@ -1,5 +1,20 @@
 @import '../../colors.module.scss';
 
+@mixin btn {
+  color: $colorText;
+  font-size: 1rem;
+  font-weight: 500;
+  border: 1px solid $colorBorder;
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  background: $colorBackground;
+  cursor: pointer;
+
+  &:hover {
+    background: $colorHover;
+  }
+}
+
 .container {
   display: flex;
   flex-direction: row;
@@ -10,18 +25,8 @@
 }
 
 .todayBtn {
+  @include btn;
   margin-left: 3rem;
-  color: $colorText;
-  font-size: 1rem;
-  border: 1px solid $colorBorder;
-  border-radius: 0.25rem;
-  padding: 0.5rem 0.75rem;
-  background: $colorBackground;
-  cursor: pointer;
-
-  &:hover {
-    background: $colorHover;
-  }
 }
 
 .calendarNavBtn {
@@ -48,4 +53,45 @@
   margin-left: 1.5rem;
   color: $colorText;
   font-size: 1.4rem;
+}
+
+.calendarTypeContainer {
+  margin-left: auto;
+  position: relative;
+  display: block;
+}
+
+.calendarTypeBtn {
+  @include btn;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.calendarTypeMenu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  border-radius: 0.25rem;
+  background: $colorBackground;
+  box-shadow: 0px 0.2rem 0.5rem $colorText;
+  z-index: 1;
+  width: 9rem;
+  right: 0;
+  margin-top: 0.3rem;
+  padding: 0.5rem 0;
+
+  button{
+    background: $colorTransparent;
+    display: flex;
+    padding: 0.5rem 1rem;
+    color: $colorText;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+
+    &:hover {
+      background: $colorHover;
+    }
+  }
 }

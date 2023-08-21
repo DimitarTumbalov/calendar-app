@@ -12,7 +12,7 @@ const MonthTabBodyItem = ({index, item}) => {
   return (
     <div className={`${styles.container} ${!isLastInRow && styles.rightBorder}`}>
       <div className={`${styles.title} ${colorsStyle} ${isFirst && styles.first}`}>
-        {simpleDate == 1 && `${MONTHS_SHORT[date.getMonth()]} `}
+        {isFirst && `${MONTHS_SHORT[date.getMonth()]} `}
         {simpleDate}
       </div>
     </div>
