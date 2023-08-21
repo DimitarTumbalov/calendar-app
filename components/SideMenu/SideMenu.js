@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import styles from './SideMenu.module.scss';
 import { setModal } from '@/redux/features/modalSlice';
 import { CreateIcon } from '../icons';
+import { SmallCalendar } from '..';
 
 const SideMenu = () => {
   const dispatch = useDispatch();
@@ -20,6 +21,8 @@ const SideMenu = () => {
         <CreateIcon height='2.25rem' className={styles.createBtnIcon}/>
         Create
       </button>
+
+      <SmallCalendar className={styles.calendar}/>
     </div>
   )
 }

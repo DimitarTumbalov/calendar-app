@@ -71,7 +71,7 @@ const Header = () => {
         onClick={() => handlePrevBtnClick()}
         >
         <ArrowLeftIcon 
-          height={24} 
+          height='1.5rem' 
           color={colors.colorText} />
       </button>
       
@@ -80,7 +80,7 @@ const Header = () => {
         onClick={() => handleNextBtnClick()}
         >
         <ArrowRightIcon 
-          height={24} 
+          height='1.5rem' 
           color={colors.colorText} />
       </button>
 

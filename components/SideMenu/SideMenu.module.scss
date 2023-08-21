@@ -1,10 +1,9 @@
 @import '../../colors.module.scss';
 
 .container {
-  width: 200px;
   height: '100%';
   border-right: 1px solid $colorBorder;
-  padding: 1rem 0.5rem;
+  padding: 1rem 1.5rem;
 }
 
 .createBtn {
@@ -27,4 +26,8 @@
 
 .createBtnIcon {
   margin-right: 0.75rem;
+}
+
+.calendar {
+  margin-top: 1rem;
 }

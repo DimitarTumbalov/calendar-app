@@ -1,0 +1,32 @@
+@import '../../colors.module.scss';
+
+.container {
+  box-sizing: border-box;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.625rem;
+  font-weight: 500;
+  cursor: pointer;
+
+  &:hover {
+    background: $colorHover;
+  }
+}
+
+.active {
+  color: $colorText
+}
+
+.inactive {
+  color: $colorTextSecondary
+}
+
+.today {
+  background: $colorPrimary;
+  color: $colorBackground
+}

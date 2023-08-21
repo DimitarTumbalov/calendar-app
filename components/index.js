@@ -11,3 +11,8 @@ export {default as MonthTabHeader} from './MonthTabHeader/MonthTabHeader';
 export {default as MonthTabHeaderItem} from './MonthTabHeaderItem/MonthTabHeaderItem';
 export {default as MonthTabBody} from './MonthTabBody/MonthTabBody';
 export {default as MonthTabBodyItem} from './MonthTabBodyItem/MonthTabBodyItem';
+
+export {default as SmallCalendar} from './SmallCalendar/SmallCalendar';
+export {default as SmallCalendarWeekName} from './SmallCalendarWeekName/SmallCalendarWeekName';
+export {default as SmallCalendarItem} from './SmallCalendarItem/SmallCalendarItem';
+export {default as SmallCalendarHeader} from './SmallCalendarHeader/SmallCalendarHeader';

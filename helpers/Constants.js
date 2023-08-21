@@ -1,5 +1,15 @@
 export const API_URL = 'http://localhost:3000/api';
 
+export const WEEK_DAYS_SHORT = [
+  'S',
+  'M',
+  'T',
+  'W',
+  'T',
+  'F',
+  'S',
+]
+
 export const WEEK_DAYS = [
   'SUN',
   'MON',
