@@ -24,12 +24,12 @@ export {default as MonthTabHeaderItem} from './tabs/MonthTabHeaderItem/MonthTabH
 export {default as YearTab} from './tabs/YearTab/YearTab';
 
 //ICONS
-export {default as ArrowLeftIcon} from './icons/ArrowLeftIcon/ArrowLeftIcon';
-export {default as ArrowRightIcon} from './icons/ArrowRightIcon/ArrowRightIcon';
-export {default as CalendarIcon} from './icons/CalendarIcon/CalendarIcon';
-export {default as CloseIcon} from './icons/CloseIcon/CloseIcon';
-export {default as CreateIcon} from './icons/CreateIcon/CreateIcon';
-export {default as DescriptionIcon} from './icons/DescriptionIcon/DescriptionIcon';
-export {default as LabelIcon} from './icons/LabelIcon/LabelIcon';
-export {default as TimeIcon} from './icons/TimeIcon/TimeIcon';
-export {default as DropDownIcon} from './icons/DropDownIcon/DropDownIcon';
+export {default as ArrowLeftIcon} from './icons/ArrowLeftIcon';
+export {default as ArrowRightIcon} from './icons/ArrowRightIcon';
+export {default as CalendarIcon} from './icons/CalendarIcon';
+export {default as CloseIcon} from './icons/CloseIcon';
+export {default as CreateIcon} from './icons/CreateIcon';
+export {default as DescriptionIcon} from './icons/DescriptionIcon';
+export {default as LabelIcon} from './icons/LabelIcon';
+export {default as TimeIcon} from './icons/TimeIcon';
+export {default as DropDownIcon} from './icons/DropDownIcon';
