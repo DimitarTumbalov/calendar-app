@@ -75,4 +75,6 @@ HOUR_OPTIONS.forEach(h => {
 
 export { TIME_OPTIONS };
 
+export const PRETTY_DATE_FORMAT = 'dddd, MMMM DD, YYYY';
 export const DATE_FORMAT = 'YYYY/MM/DD';
+export const TIME_FORMAT = 'H:mm'

@@ -7,13 +7,14 @@ import colors from '../../colors.module.scss';
 import { createEvent } from '@/services/eventService';
 import { CreateEventModalFooter, CreateEventModalHeader, LabelIcon, TimeIcon, DescriptionIcon, DatePicker, TimePicker } from '..';
 import { setModal } from '@/redux/features/modalSlice';
+import { DATE_FORMAT, TIME_FORMAT } from '@/helpers/Constants';
 
 const CreateEventModal = ({show}) => {
   const curDate = dayjs();
   const dispatch = useDispatch()
   const [title, setTitle] = useState('');
-  const [startDate, setStartDate] = useState(curDate.format('dddd, MMMM Do, YYYY'));
-  const [startTime, setStartTime] = useState(curDate.format('H:mm'));
+  const [startDate, setStartDate] = useState(curDate.format(DATE_FORMAT));
+  const [startTime, setStartTime] = useState(curDate.format(TIME_FORMAT));
   const [description, setDescription] = useState('');
   const [colorId, setColorId] = useState(0);
 

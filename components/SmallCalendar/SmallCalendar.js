@@ -15,7 +15,7 @@ const SmallCalendar = ({
 
   return (
     <div className={`${className} ${styles.container}`}>
-      <SmallCalendarHeader onPrev={onPrev} onNext={onNext}/>
+      <SmallCalendarHeader onPrev={onPrev} onNext={onNext} calendar={calendar}/>
       <div className={styles.weekNames}>
         {
           WEEK_DAYS_SHORT.map((day, index) => <SmallCalendarWeekName key={index} day={day} />)

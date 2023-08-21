@@ -31,7 +31,7 @@ export const generateCalendarMonth = (year, month) => {
   for (let i = 1; i <= lastDate; i++) {
     const item = {
       isActive: true,
-      date: dayjs([year, month, i]),
+      date: dayjs([year, month, i]).format(DATE_FORMAT),
       simpleDate: i, 
     }
 
@@ -58,7 +58,6 @@ export const generateCalendarMonth = (year, month) => {
 
     calendar.push(item);
   }
-
 
   const itemToday = calendar.find(i => i.date == curDateString);
 

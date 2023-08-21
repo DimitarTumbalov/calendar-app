@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import styles from './DatePicker.module.scss';
 import { SmallCalendar } from '..';
 import { useSelector } from 'react-redux';
+import dayjs from 'dayjs';
+import { PRETTY_DATE_FORMAT } from '@/helpers/Constants';
 
 const DatePicker = ({value, onChange}) => {
   const calendar = useSelector(state => state.calendar);
@@ -57,7 +59,7 @@ const DatePicker = ({value, onChange}) => {
       <button
         onClick={() => setShowCalendar(prev => !prev)} 
         className={styles.btn}>
-        {value}
+        {dayjs(value).format(PRETTY_DATE_FORMAT)}
       </button>
       {
         showCalendar && 

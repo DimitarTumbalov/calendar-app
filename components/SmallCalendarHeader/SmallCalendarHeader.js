@@ -1,20 +1,16 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
 import styles from './SmallCalendarHeader.module.scss';
 import colors from '@/colors.module.scss';
 import { ArrowLeftIcon, ArrowRightIcon } from '..';
 import { MONTHS } from '@/helpers/Constants';
-import { setSmallCalendar } from '@/redux/features/smallCalendarSlice';
 
-const SmallCalendarHeader = ({onPrev, onNext}) => {
-  const smallCalendar = useSelector(state => state.smallCalendar)
-  const dispatch = useDispatch();
+const SmallCalendarHeader = ({onPrev, onNext, calendar}) => {
 
   return (
     <div className={styles.container}>
       <p className={styles.title}>
-      {MONTHS[smallCalendar.month]} {smallCalendar.year}
+      {MONTHS[calendar.month]} {calendar.year}
       </p>
       <button 
         className={styles.btn}
