@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from './CreateEventModal.module.scss';
 import colors from '../../colors.module.scss';
 import { createEvent } from '@/services/eventService';
-import { CreateEventModalFooter, CreateEventModalHeader, LabelIcon, TimeIcon, DescriptionIcon, DatePicker } from '..';
+import { CreateEventModalFooter, CreateEventModalHeader, LabelIcon, TimeIcon, DescriptionIcon, DatePicker, TimePicker } from '..';
 import { setModal } from '@/redux/features/modalSlice';
 
 const CreateEventModal = ({show}) => {
@@ -13,11 +13,16 @@ const CreateEventModal = ({show}) => {
 
   const [title, setTitle] = useState('');
   const [startDate, setStartDate] = useState(new Date(calendar.year, calendar.month, calendar.day));
+  const [startTime, setStartTime] = useState(1);
   const [description, setDescription] = useState('');
   const [colorId, setColorId] = useState(0);
 
   const handleStartDateOnSelect = (date) => {
     setStartDate(date);
+  }
+  
+  const handleStartTimeOnSelect = (time) => {
+    console.log(time);
   }
 
   const handleSaveEvent = () => {
@@ -59,6 +64,11 @@ const CreateEventModal = ({show}) => {
             <DatePicker
               value={startDate} 
               onChange={handleStartDateOnSelect}/>
+            <TimePicker 
+              value={startTime}
+              onChange={handleStartTimeOnSelect}
+              />
+            
           </div>
 
           {/* <div className={styles.row}>

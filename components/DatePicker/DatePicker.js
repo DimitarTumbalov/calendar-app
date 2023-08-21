@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 const DatePicker = ({value, onChange}) => {
   const calendar = useSelector(state => state.calendar);
   const [localCalendar, setLocalCalendar] = useState(calendar);
-  const [showCalendar, setShowCalendar] = useState(true);
+  const [showCalendar, setShowCalendar] = useState(false);
 
   const handleOnCalendarSelect = (date) => {
     onChange(date);

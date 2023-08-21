@@ -2,14 +2,13 @@ import React from 'react';
 
 import styles from './DayTab.module.scss';
 import { DayTabItem } from '../..'
-
-const hours = Array.from({length: 24}, (value,index) => index)
+import { HOUR_OPTIONS } from '@/helpers/Constants';
 
 const DayTab = () => {
   
   return (
     <div className={styles.container}>
-      {hours.map(hour => <DayTabItem key={hour} item={hour} />)}
+      {HOUR_OPTIONS.map(hour => <DayTabItem key={hour} item={hour} />)}
     </div>
   )
 }
