@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react';
-
 import styles from './SmallCalendar.module.scss';
 import { generateCalendarMonth } from '@/helpers/Utils';
 import { SmallCalendarItem, SmallCalendarHeader, SmallCalendarWeekName } from '..';

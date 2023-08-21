@@ -13,6 +13,7 @@ export {default as SmallCalendarHeader} from './SmallCalendarHeader/SmallCalenda
 
 export {default as DatePicker} from './DatePicker/DatePicker';
 export {default as TimePicker} from './TimePicker/TimePicker';
+export {default as TimePickerOption} from './TimePickerOption/TimePickerOption';
 
 //TABS
 export {default as DayTab} from './tabs/DayTab/DayTab';

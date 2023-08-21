@@ -1,7 +1,8 @@
+import dayjs from "dayjs";
 import * as React from "react";
 
 const CalendarIcon = ({height}) => {
-  const curDate = new Date();
+  const curDate = dayjs();
 
   return (
     <svg
@@ -46,7 +47,7 @@ const CalendarIcon = ({height}) => {
         textAnchor="middle" 
         fontSize='5rem'
         fontWeight='500'>
-        {curDate.getDate()}
+        {curDate.date()}
       </text>  
     </svg>
   )

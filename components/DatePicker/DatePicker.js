@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import moment from 'moment/moment';
 
 import styles from './DatePicker.module.scss';
 import { SmallCalendar } from '..';
@@ -58,7 +57,7 @@ const DatePicker = ({value, onChange}) => {
       <button
         onClick={() => setShowCalendar(prev => !prev)} 
         className={styles.btn}>
-        {moment(value).format('dddd, MMMM Do, YYYY')}
+        {value}
       </button>
       {
         showCalendar && 

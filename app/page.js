@@ -26,7 +26,7 @@ export default function Home() {
         {tab == TABS[1] && <MonthTab /> }
         {tab == TABS[2] && <YearTab /> }
       </div>
-      <CreateEventModal show={modal != 'createEvent'}/>
+      <CreateEventModal show={modal == 'createEvent'}/>
     </main>
   )
 }

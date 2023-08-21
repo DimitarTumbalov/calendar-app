@@ -74,3 +74,5 @@ HOUR_OPTIONS.forEach(h => {
 })
 
 export { TIME_OPTIONS };
+
+export const DATE_FORMAT = 'YYYY/MM/DD';

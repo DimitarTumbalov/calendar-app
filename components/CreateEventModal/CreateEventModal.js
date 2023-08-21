@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import dayjs from 'dayjs';
 
 import styles from './CreateEventModal.module.scss';
 import colors from '../../colors.module.scss';
@@ -8,12 +9,11 @@ import { CreateEventModalFooter, CreateEventModalHeader, LabelIcon, TimeIcon, De
 import { setModal } from '@/redux/features/modalSlice';
 
 const CreateEventModal = ({show}) => {
+  const curDate = dayjs();
   const dispatch = useDispatch()
-  const calendar = useSelector(state => state.calendar);
-
   const [title, setTitle] = useState('');
-  const [startDate, setStartDate] = useState(new Date(calendar.year, calendar.month, calendar.day));
-  const [startTime, setStartTime] = useState(1);
+  const [startDate, setStartDate] = useState(curDate.format('dddd, MMMM Do, YYYY'));
+  const [startTime, setStartTime] = useState(curDate.format('H:mm'));
   const [description, setDescription] = useState('');
   const [colorId, setColorId] = useState(0);
 
@@ -22,15 +22,14 @@ const CreateEventModal = ({show}) => {
   }
   
   const handleStartTimeOnSelect = (time) => {
-    console.log(time);
+    setStartTime(time)
   }
 
   const handleSaveEvent = () => {
-    const startTimeDate = new Date(startTime)
     const event = {
       title,
-      // startTime: startTimeDate,
-      // endTime: startTimeDate,
+      // startTime: ,
+      // endTime: ,
       description,
       colorId
     }
@@ -70,21 +69,6 @@ const CreateEventModal = ({show}) => {
               />
             
           </div>
-
-          {/* <div className={styles.row}>
-            <TimeIcon 
-              className={styles.icon}
-              height='1.25rem'
-              color={colors.colorTextSecondary}/>
-            <input 
-              value={startTime}
-              onChange={(e) => {
-                console.log(e.target.value)
-                setStartTime(e.target.value)
-              }}
-              type="date"
-              className={styles.dateTimePicker} />
-          </div> */}
 
           <div className={styles.row}>
             <DescriptionIcon 

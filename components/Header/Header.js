@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import dayjs from 'dayjs';
 
 import styles from './Header.module.scss';
 import colors from '../../colors.module.scss';
@@ -17,10 +18,10 @@ const Header = () => {
   const [showTabsMenu, setShowTabsMenu] = useState(false);
 
   const handleTodayClick = () => {
-    const curDate = new Date();
+    const curDate = dayjs();
     dispatch(setCalendar({
-      year: curDate.getFullYear(),
-      month: curDate.getMonth()
+      year: curDate.year(),
+      month: curDate.month()
     }))
   }
 

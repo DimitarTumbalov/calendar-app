@@ -1,13 +1,14 @@
 'use client';
 
+import dayjs from "dayjs";
 const { createSlice } = require("@reduxjs/toolkit");
 
-const curDate = new Date();
+const curDate = dayjs();
 
 const initialState = {
-  year: curDate.getFullYear(),
-  month: curDate.getMonth(),
-  day: curDate.getDate()
+  year: curDate.year(),
+  month: curDate.month(),
+  day: curDate.date()
 }
 
 const smallCalendarSlice = createSlice({

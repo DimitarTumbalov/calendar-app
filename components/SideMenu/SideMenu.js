@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import styles from './SideMenu.module.scss';
@@ -9,10 +9,6 @@ import { SmallCalendar, CreateIcon } from '..';
 const SideMenu = () => {
   const dispatch = useDispatch();
   const smallCalendar = useSelector(state => state.smallCalendar);
-
-  useEffect(() => {
-    console.log(smallCalendar)
-  }, [smallCalendar])
 
   const handleCreateBtnClick = () => {
     dispatch(setModal('createEvent'));
