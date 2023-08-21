@@ -2,6 +2,14 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { NextResponse } from "next/server";
 
+// const event = {
+//   title,
+//   description,
+//   colorId,
+//   startTime, YYYY/MM/DD hh:mm
+//   endTime, YYYY/MM/DD hh:mm
+// }
+
 export const POST = async(req) => {
   const event = await req.json();
 

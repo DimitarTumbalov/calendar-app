@@ -9,7 +9,7 @@ const DayTab = () => {
   
   return (
     <div className={styles.container}>
-      {hours.map(hour => <DayTabItem index={hour} item={hour} />)}
+      {hours.map(hour => <DayTabItem key={hour} item={hour} />)}
     </div>
   )
 }

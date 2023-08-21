@@ -11,6 +11,8 @@ export {default as SmallCalendarWeekName} from './SmallCalendarWeekName/SmallCal
 export {default as SmallCalendarItem} from './SmallCalendarItem/SmallCalendarItem';
 export {default as SmallCalendarHeader} from './SmallCalendarHeader/SmallCalendarHeader';
 
+export {default as DatePicker} from './DatePicker/DatePicker';
+
 //TABS
 export {default as DayTab} from './tabs/DayTab/DayTab';
 export {default as DayTabItem} from './tabs/DayTabItem/DayTabItem';

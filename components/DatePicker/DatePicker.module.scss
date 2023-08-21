@@ -1,0 +1,34 @@
+@import '@/colors.module.scss';
+
+.container {
+  position: relative;
+  display: block;
+}
+
+.btn {
+  color: $colorText;
+  font-size: 1rem;
+  font-weight: 500;
+  border: 1px solid $colorBorder;
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  background: $colorBackground;
+  cursor: pointer;
+
+  &:hover {
+    background: $colorHover;
+    text-decoration: underline;
+  }
+}
+
+.calendarContainer {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  border-radius: 0.25rem;
+  background: $colorBackground;
+  box-shadow: 0px 0.2rem 0.5rem $colorText;
+  z-index: 2;
+  margin-top: 0.3rem;
+  padding: 0.75rem 1.5rem;
+}

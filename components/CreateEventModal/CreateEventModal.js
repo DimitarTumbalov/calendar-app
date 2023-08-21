@@ -1,25 +1,31 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import styles from './CreateEventModal.module.scss';
 import colors from '../../colors.module.scss';
 import { createEvent } from '@/services/eventService';
-import { CreateEventModalFooter, CreateEventModalHeader, LabelIcon, TimeIcon, DescriptionIcon } from '..';
+import { CreateEventModalFooter, CreateEventModalHeader, LabelIcon, TimeIcon, DescriptionIcon, DatePicker } from '..';
 import { setModal } from '@/redux/features/modalSlice';
 
 const CreateEventModal = ({show}) => {
   const dispatch = useDispatch()
+  const calendar = useSelector(state => state.calendar);
+
   const [title, setTitle] = useState('');
-  const [startTime, setStartTime] = useState('2023-08-26');
+  const [startDate, setStartDate] = useState(new Date(calendar.year, calendar.month, calendar.day));
   const [description, setDescription] = useState('');
   const [colorId, setColorId] = useState(0);
+
+  const handleStartDateOnSelect = (date) => {
+    setStartDate(date);
+  }
 
   const handleSaveEvent = () => {
     const startTimeDate = new Date(startTime)
     const event = {
       title,
-      startTime: startTimeDate,
-      endTime: startTimeDate,
+      // startTime: startTimeDate,
+      // endTime: startTimeDate,
       description,
       colorId
     }
@@ -50,6 +56,16 @@ const CreateEventModal = ({show}) => {
               className={styles.icon}
               height='1.25rem'
               color={colors.colorTextSecondary}/>
+            <DatePicker
+              value={startDate} 
+              onChange={handleStartDateOnSelect}/>
+          </div>
+
+          {/* <div className={styles.row}>
+            <TimeIcon 
+              className={styles.icon}
+              height='1.25rem'
+              color={colors.colorTextSecondary}/>
             <input 
               value={startTime}
               onChange={(e) => {
@@ -58,7 +74,7 @@ const CreateEventModal = ({show}) => {
               }}
               type="date"
               className={styles.dateTimePicker} />
-          </div>
+          </div> */}
 
           <div className={styles.row}>
             <DescriptionIcon 

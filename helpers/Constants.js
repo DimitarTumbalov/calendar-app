@@ -55,3 +55,4 @@ export const TABS = [
   'Month',
   'Year'
 ]
+
