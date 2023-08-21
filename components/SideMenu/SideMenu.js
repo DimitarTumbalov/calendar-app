@@ -3,8 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import styles from './SideMenu.module.scss';
 import { setModal } from '@/redux/features/modalSlice';
-import { CreateIcon } from '../icons';
-import { SmallCalendar } from '..';
+import { SmallCalendar, CreateIcon } from '..';
 
 const SideMenu = () => {
   const dispatch = useDispatch();

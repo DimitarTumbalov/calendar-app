@@ -1,14 +1,12 @@
-'use client';
-
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import styles from './MonthTabBody.module.scss';
-import { generateCalendarMonth } from '@/helpers/Utils';
-import { MonthTabBodyItem } from '..';
+import styles from './MonthTab.module.scss';
+import { MonthTabHeader, MonthTabItem } from '../..';
 import { getEvents } from '@/services/eventService';
+import { generateCalendarMonth } from '@/helpers/Utils';
 
-const MonthTabBody = () => {
+const MonthTab = () => {
   const calendar = useSelector((state) => state.calendar);
   const [calendarData, setCalendarData] = useState([]);
 
@@ -36,11 +34,14 @@ const MonthTabBody = () => {
 
   return (
     <div className={styles.container}>
-      {
-        calendarData.map((item, index) => <MonthTabBodyItem key={index} index={index} item={item}/>)
-      }
+        <MonthTabHeader />
+        <div className={styles.body}>
+          {
+            calendarData.map((item, index) => <MonthTabItem key={index} index={index} item={item}/>)
+          }
+        </div>
     </div>
   )
 }
 
-export default MonthTabBody
+export default MonthTab;

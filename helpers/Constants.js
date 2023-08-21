@@ -50,7 +50,7 @@ export const MONTHS = {
   11: 'December'
 }
 
-export const CALENDAR_TYPES = [
+export const TABS = [
   'Day',
   'Week',
   'Month',

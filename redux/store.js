@@ -1,7 +1,7 @@
 'use client';
 
 import calendarSlice from "./features/calendarSlice";
-import calendarTypeSlice from "./features/calendarTypeSlice";
+import tabSlice from "./features/tabSlice";
 import modalSlice from "./features/modalSlice";
 import smallCalendarSlice from "./features/smallCalendarSlice";
 
@@ -12,7 +12,7 @@ export const store = configureStore({
   reducer: {
     calendar: calendarSlice,
     smallCalendar: smallCalendarSlice,
-    calendarType: calendarTypeSlice,
+    tab: tabSlice,
     modal: modalSlice
   }
 });

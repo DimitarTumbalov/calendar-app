@@ -6,16 +6,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from './Header.module.scss';
 import colors from '../../colors.module.scss';
 import { setCalendar } from '@/redux/features/calendarSlice';
-import { setCalendarType } from '@/redux/features/calendarTypeSlice';
-import { CALENDAR_TYPES, MONTHS } from '@/helpers/Constants';
-import { CalendarLogo } from '..';
-import { ArrowLeftIcon, ArrowRightIcon, DropDownIcon } from '../icons';
+import { setTab } from '@/redux/features/tabSlice';
+import { TABS, MONTHS } from '@/helpers/Constants';
+import { CalendarLogo,  ArrowLeftIcon, ArrowRightIcon, DropDownIcon } from '..';
 
 const Header = () => {
   const dispatch = useDispatch()
   const calendar = useSelector(state => state.calendar);
-  const calendarType = useSelector(state => state.calendarType);
-  const [showCalendarTypeMenu, setShowCalendarTypeMenu] = useState(false);
+  const tab = useSelector(state => state.tab);
+  const [showTabsMenu, setShowTabsMenu] = useState(false);
 
   const handleTodayClick = () => {
     const curDate = new Date();
@@ -55,9 +54,9 @@ const Header = () => {
     dispatch(setCalendar(newCalendar));
   }
 
-  const handleCalendarTypeChange = (type) => {
-    dispatch(setCalendarType(type));
-    setShowCalendarTypeMenu(false);
+  const handleTabChange = (tab) => {
+    dispatch(setTab(tab));
+    setShowTabsMenu(false);
   }
 
   return (
@@ -86,20 +85,20 @@ const Header = () => {
 
       <p className={styles.calendarMonth}>{MONTHS[calendar.month]} {calendar.year}</p>
 
-      <div className={styles.calendarTypeContainer}>
+      <div className={styles.tabsContainer}>
         <button
-          onClick={() => setShowCalendarTypeMenu(prev => !prev)}
-          className={styles.calendarTypeBtn}>
-          {calendarType}
+          onClick={() => setShowTabsMenu(prev => !prev)}
+          className={styles.tabsMenuBtn}>
+          {tab}
           <DropDownIcon height='1rem' color={colors.colorText}/>
         </button>
         <div 
           style={{
-            display: showCalendarTypeMenu ? 'flex' : 'none'
+            display: showTabsMenu ? 'flex' : 'none'
           }}
-          className={`${styles.calendarTypeMenu}`}>
+          className={`${styles.tabsMenu}`}>
           {
-            CALENDAR_TYPES.map((type, index) => <button key={index} onClick={() => handleCalendarTypeChange(type)}>{type}</button>)
+            TABS.map((tab, index) => <button key={index} onClick={() => handleTabChange(tab)}>{tab}</button>)
           }
         </div>
       </div>

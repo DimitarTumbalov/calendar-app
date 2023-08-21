@@ -1,6 +1,5 @@
 import React from 'react';
-import styles from './MonthTabBodyItem.module.scss';
-import colors from '../../colors.module.scss';
+import styles from './MonthTabItem.module.scss';
 import { MONTHS_SHORT } from '@/helpers/Constants';
 
 const MonthTabBodyItem = ({index, item}) => {

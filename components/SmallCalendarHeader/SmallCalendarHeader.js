@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import styles from './SmallCalendarHeader.module.scss';
 import colors from '@/colors.module.scss';
-import { ArrowLeftIcon, ArrowRightIcon } from '../icons';
+import { ArrowLeftIcon, ArrowRightIcon } from '..';
 import { MONTHS } from '@/helpers/Constants';
 import { setSmallCalendar } from '@/redux/features/smallCalendarSlice';
 

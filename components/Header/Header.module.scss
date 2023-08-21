@@ -55,20 +55,21 @@
   font-size: 1.4rem;
 }
 
-.calendarTypeContainer {
+.tabsContainer {
   margin-left: auto;
   position: relative;
   display: block;
 }
 
-.calendarTypeBtn {
+.tabsMenuBtn {
   @include btn;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  margin-left: 1.5rem;
 }
 
-.calendarTypeMenu {
+.tabsMenu {
   display: flex;
   flex-direction: column;
   position: absolute;

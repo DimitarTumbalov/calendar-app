@@ -4,8 +4,7 @@ import { useDispatch } from 'react-redux';
 import styles from './CreateEventModal.module.scss';
 import colors from '../../colors.module.scss';
 import { createEvent } from '@/services/eventService';
-import { LabelIcon, TimeIcon, DescriptionIcon } from '../icons';
-import { CreateEventModalFooter, CreateEventModalHeader } from '..';
+import { CreateEventModalFooter, CreateEventModalHeader, LabelIcon, TimeIcon, DescriptionIcon } from '..';
 import { setModal } from '@/redux/features/modalSlice';
 
 const CreateEventModal = ({show}) => {

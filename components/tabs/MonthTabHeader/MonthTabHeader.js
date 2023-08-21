@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './MonthTabHeader.module.scss';
 import { WEEK_DAYS } from '@/helpers/Constants';
-import { MonthTabHeaderItem } from '..';
+import { MonthTabHeaderItem } from '../../';
 
 const MonthTabHeader = () => {
   return (

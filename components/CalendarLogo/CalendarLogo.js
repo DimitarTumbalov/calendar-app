@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './CalendarLogo.module.scss';
-import { CalendarIcon } from '../icons';
+import { CalendarIcon } from '..';
 
 const CalendarLogo = () => {
   return (
