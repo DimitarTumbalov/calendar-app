@@ -4,19 +4,19 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 1rem 0.5rem 1rem 1rem;
+  padding: 1rem;
   box-sizing: border-box;
   overflow: auto;
-  gap: 1rem;
 }
 
 .title {
   font-size: 1.5rem;
   font-weight: 500;
-  color: $colorPrimary;
+  color: $colorTextSecondary;
 }
 
 .eventsContainer {
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;

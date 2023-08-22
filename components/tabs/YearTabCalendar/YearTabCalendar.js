@@ -4,7 +4,7 @@ import { MONTHS, WEEK_DAYS_SHORT } from '@/helpers/Constants';
 import { YearTabDate, YearTabWeekName } from '../..';
 import { generateCalendarMonth } from '@/helpers/Utils';
 
-const YearTabCalendar = ({calendar}) => {
+const YearTabCalendar = ({calendar, onClick}) => {
   const monthData = useMemo(() => {
     return generateCalendarMonth(calendar.year(), calendar.month());
   }, [calendar]);
@@ -21,7 +21,7 @@ const YearTabCalendar = ({calendar}) => {
       </div>
       <div className={styles.content}>
         {
-          monthData.map((item, index) => <YearTabDate key={index} item={item}/>)
+          monthData.map((item, index) => <YearTabDate key={index} item={item} onClick={onClick}/>)
         }
       </div>
     </div>

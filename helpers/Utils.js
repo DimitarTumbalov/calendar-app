@@ -41,7 +41,6 @@ export const generateCalendarMonth = (year, month) => {
     calendar.push(item);
   }
 
-
   //Add the first dates of the next month
   for (let i = lastWeekDay + 1; i <= 6; i++) {
     const simpleDate = i - lastWeekDay;

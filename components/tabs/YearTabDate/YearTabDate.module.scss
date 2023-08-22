@@ -8,10 +8,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 500;
   cursor: pointer;
-  background: red;
 
   &:hover {
     background: $colorHovered;
