@@ -1,5 +1,5 @@
+'use client';
 import React, { useState } from 'react';
-
 import styles from './DatePicker.module.scss';
 import { SmallCalendar } from '..';
 import { useDispatch, useSelector } from 'react-redux';

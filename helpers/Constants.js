@@ -91,10 +91,10 @@ const curDate = dayjs();
 export const MIN_DATE_YEAR = curDate.subtract(100, 'year').year();
 export const MAX_DATE_YEAR = curDate.add(100, 'year').year()
 
-export const LABEL_COLORS = {
-  0: colors.colorLabel0,
-  1: colors.colorLabel1,
-  2: colors.colorLabel2,
-  3: colors.colorLabel3,
-  4: colors.colorLabel4
-}
+export const LABEL_COLORS = [
+  colors.colorLabel0,
+  colors.colorLabel1,
+  colors.colorLabel2,
+  colors.colorLabel3,
+  colors.colorLabel4
+]

@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from 'react';
 import styles from './TimePicker.module.scss';
 import {TIME_OPTIONS} from '@/helpers/Constants';

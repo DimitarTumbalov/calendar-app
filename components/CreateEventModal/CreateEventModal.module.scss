@@ -81,7 +81,18 @@
 .colorOption {
   width: 1.5rem;
   height: 1.5rem;
-  background: red;
   border-radius: 50%;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.selected {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  background: $colorBackground;
 }

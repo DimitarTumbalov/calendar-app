@@ -6,6 +6,7 @@
   flex-direction: column;
   text-align: center;
   overflow: hidden;
+  border-left: 1px solid $colorBorder;
 }
 
 .title {
@@ -45,13 +46,21 @@
   color: $colorBackground
 }
 
-.rightBorder {
-  border-right: 1px solid $colorBorder;
-}
-
 .eventsContainer {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  flex: 1;
+}
+
+.eventsMore {
+  max-width: 100%;
+  margin-right: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  white-space: nowrap;
+  text-overflow: ellipsis; 
+  padding: 0.15rem 0.5rem;
+  color: $colorText;
+  margin-bottom: 0.125rem;
+  text-align: start;
 }

@@ -1,10 +1,15 @@
 @import '@/colors.module';
 
 .container {
-  width: 100%;
-  font-size: 0.75rem;
-  padding: 0.1rem;
-  overflow: hidden;
+  max-width: 100%;
+  margin-right: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.15rem 0.5rem;
   color: $colorBackground;
-  margin-bottom: 0.25rem
+  margin-bottom: 0.125rem;
+  border-radius: 0.25rem;
+  white-space: nowrap;
+  text-overflow: ellipsis; 
+  text-align: start;
 }

@@ -1,4 +1,5 @@
-import React, { useEffect, useMemo, useState } from 'react';
+'use client';
+import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
 import styles from './MonthTab.module.scss';
@@ -30,7 +31,7 @@ const MonthTab = () => {
         <MonthTabHeader />
         <div className={styles.body}>
           {
-            calendarData.map((item, index) => <MonthTabItem key={index} index={index} item={item}/>)
+            calendarData.map((item, index) => <MonthTabItem key={index} item={item}/>)
           }
         </div>
     </div>

@@ -1,10 +1,11 @@
+'use client';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import styles from './SideMenu.module.scss';
 import { setModal } from '@/redux/features/modalSlice';
-import { setSmallCalendar } from '@/redux/features/smallCalendarSlice';
 import { SmallCalendar, CreateIcon } from '..';
+import { setSmallCalendar } from '@/redux/features/smallCalendarSlice';
 
 const SideMenu = () => {
   const dispatch = useDispatch();

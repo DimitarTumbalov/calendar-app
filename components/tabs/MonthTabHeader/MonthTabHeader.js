@@ -7,7 +7,7 @@ const MonthTabHeader = () => {
   return (
     <div className={styles.container}>
       {
-        WEEK_DAYS.map((day, index) => <MonthTabHeaderItem key={index} item={day} index={index}/>)
+        WEEK_DAYS.map((day, index) => <MonthTabHeaderItem key={index} item={day} />)
       }
     </div>
   )

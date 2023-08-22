@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import dayjs from 'dayjs';
@@ -8,7 +9,7 @@ import { createEvent } from '@/services/eventService';
 import { CreateEventModalFooter, CreateEventModalHeader, LabelIcon, TimeIcon, DescriptionIcon, DatePicker, TimePicker, EndIcon } from '..';
 import { setModal } from '@/redux/features/modalSlice';
 import { addEvent } from '@/redux/features/eventsSlice';
-import { DATE_FORMAT, TIME_FORMAT } from '@/helpers/Constants';
+import { DATE_FORMAT, LABEL_COLORS, TIME_FORMAT } from '@/helpers/Constants';
 
 const CreateEventModal = ({show}) => {
   const curDate = dayjs();
@@ -123,7 +124,15 @@ const CreateEventModal = ({show}) => {
               className={styles.icon}
               height='1.25rem'
               color={colors.colorTextSecondary}/>
-            <div className={styles.colorOption}/>
+            {LABEL_COLORS.map((color, index) => 
+              <div key={color} 
+                onClick={() => setColorId(index)}
+                style={{background: color}} 
+                className={styles.colorOption}> 
+                {colorId == index &&
+                <div className={styles.selected}/> }
+              </div>
+            )}
           </div>
         </div>
 

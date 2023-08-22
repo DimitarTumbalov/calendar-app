@@ -1,0 +1,30 @@
+@import '@/colors.module.scss';
+
+@mixin text {
+  font-weight: 500;
+  color: $colorBackground;
+}
+
+.container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.title {
+  @include text;
+  font-size: 1.25rem;
+}
+
+.duration {
+  @include text;
+  font-size: 1rem;
+}
+
+.description {
+  @include text;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}

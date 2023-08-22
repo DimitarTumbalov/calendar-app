@@ -7,4 +7,17 @@
   padding: 1rem 0.5rem 1rem 1rem;
   box-sizing: border-box;
   overflow: auto;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: $colorPrimary;
+}
+
+.eventsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }

@@ -17,7 +17,7 @@ export {default as TimePickerOption} from './TimePickerOption/TimePickerOption';
 
 //TABS
 export {default as DayTab} from './tabs/DayTab/DayTab';
-export {default as DayTabItem} from './tabs/DayTabItem/DayTabItem';
+export {default as DayTabEvent} from './tabs/DayTabEvent/DayTabEvent';
 
 export {default as MonthTab} from './tabs/MonthTab/MonthTab';
 export {default as MonthTabItem} from './tabs/MonthTabItem/MonthTabItem';
