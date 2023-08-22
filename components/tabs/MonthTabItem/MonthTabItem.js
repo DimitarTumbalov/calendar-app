@@ -5,7 +5,7 @@ import styles from './MonthTabItem.module.scss';
 import { MONTHS_SHORT, DATE_FORMAT } from '@/helpers/Constants';
 import { MonthTabItemEvent } from '../..'
 
-const MonthTabBodyItem = ({item}) => {
+const MonthTabBodyItem = ({item, onClick}) => {
   const {date, simpleDate, isActive, isToday, isFirst, events} = item;
   const activeClass = isActive ? styles.active : styles.inactive;
   const colorsStyle = isToday ? styles.today : activeClass;
@@ -13,7 +13,9 @@ const MonthTabBodyItem = ({item}) => {
 
   return (
     <div className={styles.container}>
-      <div className={`${styles.title} ${colorsStyle} ${isFirst && styles.first}`}>
+      <div 
+        onClick={() => onClick(date)}
+        className={`${styles.title} ${colorsStyle} ${isFirst && styles.first}`}>
         {isFirst && `${MONTHS_SHORT[monthIndex]} `}
         {simpleDate}
       </div>

@@ -10,7 +10,7 @@ const SmallCalendarHeader = ({onPrev, onNext, calendar}) => {
   return (
     <div className={styles.container}>
       <p className={styles.title}>
-      {MONTHS[calendar.month]} {calendar.year}
+      {MONTHS[calendar.month()]} {calendar.year()}
       </p>
       <button 
         className={styles.btn}

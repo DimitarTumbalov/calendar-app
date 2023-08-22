@@ -4,6 +4,7 @@ import styles from './DatePicker.module.scss';
 import { SmallCalendar } from '..';
 import { useDispatch, useSelector } from 'react-redux';
 import dayjs from 'dayjs';
+import { calendarEqualityFn } from '@/redux/features/calendarSlice';
 import { PRETTY_DATE_FORMAT } from '@/helpers/Constants';
 import { setPopup } from '@/redux/features/popupSlice';
 
@@ -11,7 +12,7 @@ const DatePicker = ({name, value, onChange}) => {
   const popupName = `datePicker-${name}`;
   const dispatch = useDispatch();
   const popup = useSelector(state => state.popup);
-  const calendar = useSelector(state => state.calendar);
+  const calendar = useSelector(state => dayjs(state.calendar), calendarEqualityFn);
   const [localCalendar, setLocalCalendar] = useState(calendar);
 
   const handleOnCalendarSelect = (date) => {
@@ -20,41 +21,15 @@ const DatePicker = ({name, value, onChange}) => {
   }
 
   const handleOnCalendarPrev = () => {
-    let newCalendar;
-
-    if(localCalendar.month == 0){
-      newCalendar = {
-        ...localCalendar,
-        year: localCalendar.year - 1,
-        month: 11,
-      }
-    }else{
-      newCalendar = { 
-        ...localCalendar,
-        month: localCalendar.month - 1
-      }
-    }
-
-    setLocalCalendar(newCalendar);
+    setLocalCalendar(prev => {
+      return prev.clone().subtract(1, 'month');
+    });
   }
 
   const handleOnCalendarNext = () => {
-    let newCalendar;
-
-    if(localCalendar.month == 11){
-      newCalendar = {
-        ...localCalendar,
-        year: localCalendar.year + 1,
-        month: 0,
-      }
-    }else{
-      newCalendar = { 
-        ...localCalendar,
-        month: localCalendar.month + 1 
-      }
-    }
-
-    setLocalCalendar(newCalendar);
+    setLocalCalendar(prev => {
+      return prev.clone().add(1, 'month');
+    });
   }
 
   return (

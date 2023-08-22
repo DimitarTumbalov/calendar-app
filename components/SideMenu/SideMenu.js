@@ -1,52 +1,43 @@
 'use client';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import styles from './SideMenu.module.scss';
 import { setModal } from '@/redux/features/modalSlice';
 import { SmallCalendar, CreateIcon } from '..';
-import { setSmallCalendar } from '@/redux/features/smallCalendarSlice';
+import { calendarEqualityFn, setCalendar } from '@/redux/features/calendarSlice';
+import { setTab } from '@/redux/features/tabSlice';
+import dayjs from 'dayjs';
+import { DATE_FORMAT, TABS } from '@/helpers/Constants';
 
 const SideMenu = () => {
   const dispatch = useDispatch();
-  const smallCalendar = useSelector(state => state.smallCalendar);
+  const calendar = useSelector(state => dayjs(state.calendar), calendarEqualityFn);
+  const [localCalendar, setLocalCalendar] = useState(calendar);
+
+  useEffect(() => {
+    setLocalCalendar(calendar);
+  }, [calendar])
 
   const handleCreateBtnClick = () => {
     dispatch(setModal('createEvent'));
   }
 
-  const handleOnCalendarSelect = (date) => {
-    console.log('handleCalendarSelect')
-  }
+  const handleOnDateClick = (date) => {
+    dispatch(setCalendar(dayjs(date, DATE_FORMAT).valueOf()));
+    dispatch(setTab(TABS[0]));
+  };
 
   const handleOnCalendarPrev = () => {
-    let newCalendar;
-
-    if(smallCalendar.month == 0){
-      newCalendar = {
-        year: smallCalendar.year - 1,
-        month: 11,
-      }
-    }else{
-      newCalendar = { month: smallCalendar.month - 1 }
-    }
-
-    dispatch(setSmallCalendar(newCalendar));
+    setLocalCalendar(prev => {
+      return prev.clone().subtract(1, 'month');
+    })
   }
 
   const handleOnCalendarNext = () => {
-    let newCalendar;
-
-    if(smallCalendar.month == 11){
-      newCalendar = {
-        year: smallCalendar.year + 1,
-        month: 0,
-      }
-    }else{
-      newCalendar = { month: smallCalendar.month + 1 }
-    }
-
-    dispatch(setSmallCalendar(newCalendar));
+    setLocalCalendar(prev => {
+      return prev.clone().add(1, 'month');
+    })
   }
   
   return (
@@ -60,10 +51,10 @@ const SideMenu = () => {
 
       <SmallCalendar 
         className={styles.calendar}
-        onSelect={handleOnCalendarSelect}
+        onSelect={handleOnDateClick}
         onPrev={handleOnCalendarPrev}
         onNext={handleOnCalendarNext}
-        calendar={smallCalendar}/>
+        calendar={localCalendar}/>
     </div>
   )
 }

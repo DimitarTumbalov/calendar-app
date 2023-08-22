@@ -6,53 +6,39 @@ import dayjs from 'dayjs';
 
 import styles from './Header.module.scss';
 import colors from '../../colors.module.scss';
-import { setCalendar } from '@/redux/features/calendarSlice';
+import { setCalendar, decreaseDay, increaseDay, decreaseMonth, increaseMonth, decreaseYear, increaseYear, calendarEqualityFn } from '@/redux/features/calendarSlice';
 import { setTab } from '@/redux/features/tabSlice';
 import { TABS, MONTHS } from '@/helpers/Constants';
 import { CalendarLogo,  ArrowLeftIcon, ArrowRightIcon, DropDownIcon } from '..';
 
 const Header = () => {
   const dispatch = useDispatch()
-  const calendar = useSelector(state => state.calendar);
+  const calendar = useSelector(state => dayjs(state.calendar), calendarEqualityFn);
   const tab = useSelector(state => state.tab);
   const [showTabsMenu, setShowTabsMenu] = useState(false);
 
   const handleTodayClick = () => {
-    const curDate = dayjs();
-    dispatch(setCalendar({
-      year: curDate.year(),
-      month: curDate.month()
-    }))
+    dispatch(setCalendar(dayjs().valueOf()));
   }
 
   const handlePrevBtnClick = () => {
-    let newCalendar;
-
-    if(calendar.month == 0){
-      newCalendar = {
-        year: calendar.year - 1,
-        month: 11,
-      }
-    }else{
-      newCalendar = { month: calendar.month - 1 }
+    if(tab == TABS[0]){ // Day Tab
+      dispatch(decreaseDay());
+    }else if(tab == TABS[1]){ // Month Tab
+      dispatch(decreaseMonth());
+    }else { // Year Tab
+      dispatch(decreaseYear());
     }
-
-    dispatch(setCalendar(newCalendar));
   }
 
   const handleNextBtnClick = () => {
-    let newCalendar;
-
-    if(calendar.month == 11){
-      newCalendar = {
-        year: calendar.year + 1,
-        month: 0,
-      }
-    }else{
-      newCalendar = { month: calendar.month + 1 }
+    if(tab == TABS[0]){ // Day Tab
+      dispatch(increaseDay());
+    }else if(tab == TABS[1]){ // Month Tab
+      dispatch(increaseMonth());
+    }else { // Year Tab
+      dispatch(increaseYear());
     }
-
-    dispatch(setCalendar(newCalendar));
   }
 
   const handleTabChange = (tab) => {
@@ -84,7 +70,14 @@ const Header = () => {
         <ArrowRightIcon height='1.5rem' color={colors.colorText} />
       </button>
 
-      <p className={styles.calendarMonth}>{MONTHS[calendar.month]} {calendar.year}</p>
+      {tab == TABS[0] &&
+        <p className={styles.calendarMonth}>{MONTHS[calendar.month()]} {calendar.date()}, {calendar.year()}</p>}
+
+      {tab == TABS[1] &&
+        <p className={styles.calendarMonth}>{MONTHS[calendar.month()]} {calendar.year()}</p>}
+
+      {tab == TABS[2] &&
+        <p className={styles.calendarMonth}>{calendar.year()}</p>}
 
       <div className={styles.tabsContainer}>
         <button

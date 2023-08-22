@@ -5,7 +5,6 @@ import styles from './page.module.scss';
 import { DayTab, MonthTab, YearTab, CreateEventModal, Header, SideMenu } from '@/components';
 import { TABS } from '@/helpers/Constants';
 import { useEffect } from 'react';
-import { setSmallCalendar } from '@/redux/features/smallCalendarSlice';
 import { setEvents } from '@/redux/features/eventsSlice';
 import { getEvents } from '@/services/eventService';
 
@@ -13,7 +12,6 @@ export default function Home() {
   const dispatch = useDispatch();
   const modal = useSelector(state => state.modal);
   const tab = useSelector(state => state.tab);
-  const calendar = useSelector(state => state.calendar);
 
   useEffect(() => {
     getEvents().then(res => res.json())
@@ -23,10 +21,6 @@ export default function Home() {
       .catch(err => console.log(err));
   }, [])
 
-  useEffect(() => {
-    dispatch(setSmallCalendar(calendar));
-  }, [calendar])
-  
   return (
     <main className={styles.main}>
       <Header />

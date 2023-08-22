@@ -10,8 +10,12 @@ const eventsSlice = createSlice({
   name: 'events',
   initialState,
   reducers: {
-    setEvents: (state, action) => action.payload,
-    addEvent: (state, action) => state.push(action.payload)
+    setEvents: (state, action) => {
+      return action.payload;
+    },
+    addEvent: (state, action) => {
+      state.push(action.payload);
+    }
   }
 })
 

@@ -1,19 +1,25 @@
-import React from 'react';
+import React, { useEffect, useMemo } from 'react';
+import dayjs from 'dayjs';
 
 import styles from './DayTab.module.scss';
 import { DayTabEvent } from '../..'
 import { DATE_FORMAT, PRETTY_DATE_FORMAT } from '@/helpers/Constants';
 import { useSelector } from 'react-redux';
-import dayjs from 'dayjs';
+import { calendarEqualityFn } from '@/redux/features/calendarSlice';
 
 const DayTab = () => {
-  const calendar = useSelector(state => state.calendar);
+  const calendar = useSelector(state => dayjs(state.calendar), calendarEqualityFn);
   const events = useSelector(state => state.events);
-  const date = dayjs([calendar.year, calendar.month + 1, calendar.day])
-  const dateString = date.format(DATE_FORMAT);
-  const title = date.format(PRETTY_DATE_FORMAT);
 
-  const dayEvents = events.filter(e => e.startDate == dateString)
+  const dateString = calendar.format(DATE_FORMAT);
+  const title = calendar.format(PRETTY_DATE_FORMAT);
+  const dayEvents = useMemo(() => {
+    return events.filter(e => e.startDate == dateString);
+  }, [events, calendar])
+
+  // useEffect(() => {
+  //   console.log(dayEvents)
+  // }, [dayEvents])
 
   return (
     <div className={styles.container}>
@@ -22,7 +28,7 @@ const DayTab = () => {
       </p>
       <div className={styles.eventsContainer}>
         {
-          events.map((event, index) => <DayTabEvent key={index} event={event} />)
+          dayEvents.map((event, index) => <DayTabEvent key={index} event={event} />)
         }
       </div>
     </div>

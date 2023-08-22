@@ -10,7 +10,9 @@ const tabSlice = createSlice({
   name: 'tab',
   initialState,
   reducers: {
-    setTab: (state, action) => action.payload
+    setTab: (state, action) => {
+      return action.payload;
+    }
   }
 })
 

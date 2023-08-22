@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import styles from './YearTabCalendar.module.scss';
 import { MONTHS, WEEK_DAYS_SHORT } from '@/helpers/Constants';
 import { YearTabDate, YearTabWeekName } from '../..';
 import { generateCalendarMonth } from '@/helpers/Utils';
 
 const YearTabCalendar = ({calendar}) => {
-  const monthData = generateCalendarMonth(calendar.year, calendar.month)
+  const monthData = useMemo(() => {
+    return generateCalendarMonth(calendar.year(), calendar.month());
+  }, [calendar]);
 
   return (
     <div className={styles.container}>
       <p className={styles.title}>
-        {MONTHS[calendar.month]}
+        {MONTHS[calendar.month()]}
       </p>
       <div className={styles.content}>
         {

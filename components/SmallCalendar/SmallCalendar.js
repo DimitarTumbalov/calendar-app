@@ -11,7 +11,9 @@ const SmallCalendar = ({
   onNext,
   calendar
 }) => {
-  const monthData = useMemo(() => generateCalendarMonth(calendar.year, calendar.month), [calendar]);
+  const monthData = useMemo(() => {
+    return generateCalendarMonth(calendar.year(), calendar.month());
+  }, [calendar]);
 
   return (
     <div className={`${className} ${styles.container}`}>
