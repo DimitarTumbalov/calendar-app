@@ -2,14 +2,26 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './EventModal.module.scss';
 import colors from '@/colors.module.scss';
-import { CloseIcon, EditIcon, TimeIcon, EndIcon, DescriptionIcon } from '..';
+import { CloseIcon, EditIcon, TimeIcon, EndIcon, DescriptionIcon, DeleteIcon } from '..';
 import { setSelectedEvent } from '@/redux/features/selectedEventSlice';
 import { setModal } from '@/redux/features/modalSlice';
-import { LABEL_COLORS } from '@/helpers/Constants';
+import { removeEvent } from '@/redux/features/eventsSlice';
+import { DATE_FORMAT, LABEL_COLORS, PRETTY_DATE_FORMAT } from '@/helpers/Constants';
+import { deleteEvent } from '@/services/eventService';
+import dayjs from 'dayjs';
 
 const EventModal = ({show}) => {
   const dispatch = useDispatch();
   const event = useSelector(state => state.selectedEvent);
+
+  const handleOnDelete = () => {
+    deleteEvent(event.id).then(res => res.json())
+    .then(data => { 
+      dispatch(removeEvent(data.eventId));
+      handleOnClose();
+    })
+    .catch(err => console.log(err))
+  }
 
   const handleOnClose = () => {
     dispatch(setModal(null));
@@ -24,11 +36,19 @@ const EventModal = ({show}) => {
       <div className={styles.modal}>
         <div className={styles.header}>
           <button
+            onClick={() => handleOnDelete()}>
+            <DeleteIcon
+              height='1.3rem'
+              color={colors.colorTextSecondary}/>
+          </button>
+
+          <button
             onClick={() => {}}>
             <EditIcon 
               height='1.3rem'
               color={colors.colorTextSecondary}/>
           </button>
+
           <button
             onClick={() => handleOnClose()}>
             <CloseIcon 
@@ -55,14 +75,14 @@ const EventModal = ({show}) => {
           <div className={styles.row}>
             <TimeIcon height='1.3rem' color={colors.colorTextSecondary}/>
             <p className={styles.time}>
-              {event?.startDate} {event?.startTime}
+            {dayjs(event?.startDate, DATE_FORMAT).format(PRETTY_DATE_FORMAT)} {event?.startTime}
             </p>
           </div>
 
           <div className={styles.row}>
             <EndIcon height='1.3rem' color={colors.colorTextSecondary}/>
             <p className={styles.time}>
-              {event?.startDate} {event?.startTime}
+              {dayjs(event?.endDate, DATE_FORMAT).format(PRETTY_DATE_FORMAT)} {event?.endTime}
             </p>
           </div>
 

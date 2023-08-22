@@ -45,3 +45,4 @@ export {default as TimeIcon} from './icons/TimeIcon';
 export {default as DropDownIcon} from './icons/DropDownIcon';
 export {default as EndIcon} from './icons/EndIcon';
 export {default as EditIcon} from './icons/EditIcon';
+export {default as DeleteIcon} from './icons/DeleteIcon';

@@ -4,6 +4,7 @@ import styles from './DayTabEvent.module.scss';
 import { DATE_FORMAT, LABEL_COLORS, PRETTY_DATE_FORMAT } from '@/helpers/Constants';
 import dayjs from 'dayjs';
 import { setModal } from '@/redux/features/modalSlice';
+import { setSelectedEvent } from '@/redux/features/selectedEventSlice';
 
 const DayTabEvent = ({event}) => {
   const { title, startTime, endTime } = event;
@@ -18,6 +19,7 @@ const DayTabEvent = ({event}) => {
 
   return (
     <div 
+      onClick={() => handleOnClick()}
       className={styles.container}
       style={{
         background: LABEL_COLORS[event.colorId]

@@ -10,15 +10,21 @@
   display: flex;
   flex-direction: column;
   border-radius: 0.25rem;
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.75;
+  }
 }
 
 .title {
   @include text;
-  font-size: 1.25rem;
+  font-size: 1.4rem;
 }
 
 .duration {
   @include text;
   font-size: 1rem;
+  opacity: 0.75;
 }

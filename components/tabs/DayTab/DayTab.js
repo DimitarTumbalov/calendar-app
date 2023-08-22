@@ -28,6 +28,12 @@ const DayTab = () => {
           dayEvents.map((event, index) => <DayTabEvent key={index} event={event} />)
         }
       </div>
+      {
+        dayEvents.length == 0 &&
+        <div className={styles.noEvents}>
+          No events yet...
+        </div>
+      }
     </div>
   )
 }
