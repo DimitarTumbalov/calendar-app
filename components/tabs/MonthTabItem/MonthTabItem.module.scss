@@ -1,12 +1,11 @@
 @import '../../../colors.module.scss';
 
 .container {
-  box-sizing: border-box;
   border-bottom: 1px solid $colorBorder;
   display: flex;
   flex-direction: column;
-  flex-basis: calc(100% / 7);
   text-align: center;
+  overflow: hidden;
 }
 
 .title {
@@ -53,6 +52,6 @@
 .eventsContainer {
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
+  overflow: hidden;
   flex: 1;
 }

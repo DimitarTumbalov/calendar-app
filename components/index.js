@@ -26,6 +26,9 @@ export {default as MonthTabHeader} from './tabs/MonthTabHeader/MonthTabHeader';
 export {default as MonthTabHeaderItem} from './tabs/MonthTabHeaderItem/MonthTabHeaderItem';
 
 export {default as YearTab} from './tabs/YearTab/YearTab';
+export {default as YearTabCalendar} from './tabs/YearTabCalendar/YearTabCalendar';
+export {default as YearTabDate} from './tabs/YearTabDate/YearTabDate';
+export {default as YearTabWeekName} from './tabs/YearTabWeekName/YearTabWeekName';
 
 //ICONS
 export {default as ArrowLeftIcon} from './icons/ArrowLeftIcon';
