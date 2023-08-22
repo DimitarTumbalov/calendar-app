@@ -1,36 +1,46 @@
 [
   {
-    "title": "dadsa",
-    "startTime": "2023-08-26T00:00:00.000Z",
-    "endTime": "2023-08-26T00:00:00.000Z",
-    "description": "asda",
+    "title": "test",
+    "startDate": "2023/08/22",
+    "startTime": "1:44",
+    "endDate": "2023/08/22",
+    "endTime": "1:44",
+    "description": "",
     "colorId": 0
   },
   {
-    "title": "sad",
-    "startTime": "2023-08-26T00:00:00.000Z",
-    "endTime": "2023-08-26T00:00:00.000Z",
-    "description": "asdad",
+    "title": "asdsad23123",
+    "startDate": "2023/08/22",
+    "startTime": "8:15",
+    "endDate": "2023/08/26",
+    "endTime": "16:45",
+    "description": "",
     "colorId": 0
   },
   {
-    "title": "sad",
-    "startTime": "2023-08-26T00:00:00.000Z",
-    "endTime": "2023-08-26T00:00:00.000Z",
-    "description": "asdad",
+    "title": "asdadsad",
+    "startDate": "2023/08/22",
+    "startTime": "2:38",
+    "endDate": "2023/08/22",
+    "endTime": "2:38",
+    "description": "",
     "colorId": 0
   },
   {
-    "title": "sad",
-    "startTime": "2023-08-26T00:00:00.000Z",
-    "endTime": "2023-08-26T00:00:00.000Z",
-    "description": "asdadasdad",
+    "title": "asdsad",
+    "startDate": "2023/08/22",
+    "startTime": "3:25",
+    "endDate": "2023/08/22",
+    "endTime": "3:25",
+    "description": "asdasdsa",
     "colorId": 0
   },
   {
     "title": "",
-    "startTime": "2023-08-26T00:00:00.000Z",
-    "endTime": "2023-08-26T00:00:00.000Z",
+    "startDate": "2023/08/02",
+    "startTime": "3:34",
+    "endDate": "2023/08/22",
+    "endTime": "3:34",
     "description": "",
     "colorId": 0
   }

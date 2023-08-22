@@ -1,36 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import styles from './MonthTab.module.scss';
 import { MonthTabHeader, MonthTabItem } from '../..';
-import { getEvents } from '@/services/eventService';
 import { generateCalendarMonth } from '@/helpers/Utils';
 
 const MonthTab = () => {
+  const events = useSelector(state => state.events);
   const calendar = useSelector((state) => state.calendar);
-  const [calendarData, setCalendarData] = useState([]);
 
-  useEffect(() => {
-    const newCalendarData = generateCalendarMonth(calendar.year, calendar.month);
+  const calendarData = useMemo(() => {
+    const newCalendarData = generateCalendarMonth(calendar.year, calendar.month)
 
-    getAllEvents().then(events => {
-      // newCalendarData.forEach(item => {
-      //   item.events = events.filter(e => {
-      //     console.log(item.date.toDateString())
-      //     return e.startTime == item.date
-      //   });
-      // })
-
-      setCalendarData(newCalendarData);
+    //Add events to dates
+    newCalendarData.forEach(item => {
+      item.events = events.filter(e => e.startDate == item.date);
     })
-  }, [calendar])
 
-  const getAllEvents = async() => {
-    const res  = await getEvents();
-    const data = await res.json();
+    return newCalendarData
+  }, [events, calendar]);
 
-    return data;
-  }
+  // useEffect(() => {
+  //   const newCalendarData = generateCalendarMonth(calendar.year, calendar.month);
+  //   setCalendarData(newCalendarData);
+  // }, [calendar])
 
   return (
     <div className={styles.container}>

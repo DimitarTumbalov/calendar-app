@@ -1,3 +1,6 @@
+import dayjs from "dayjs";
+import colors from '@/colors.module.scss';
+
 export const API_URL = 'http://localhost:3000/api';
 
 export const WEEK_DAYS_SHORT = [
@@ -78,3 +81,20 @@ export { TIME_OPTIONS };
 export const PRETTY_DATE_FORMAT = 'dddd, MMMM DD, YYYY';
 export const DATE_FORMAT = 'YYYY/MM/DD';
 export const TIME_FORMAT = 'H:mm'
+
+export const REGEX = {
+  EVENT_TITLE: /^[a-z\d ]{1,50}$/i,
+  EVENT_DESCRIPTION: /^[a-z\d ]{1,250}$/i
+}
+
+const curDate = dayjs();
+export const MIN_DATE_YEAR = curDate.subtract(100, 'year').year();
+export const MAX_DATE_YEAR = curDate.add(100, 'year').year()
+
+export const LABEL_COLORS = {
+  0: colors.colorLabel0,
+  1: colors.colorLabel1,
+  2: colors.colorLabel2,
+  3: colors.colorLabel3,
+  4: colors.colorLabel4
+}

@@ -21,6 +21,7 @@ export {default as DayTabItem} from './tabs/DayTabItem/DayTabItem';
 
 export {default as MonthTab} from './tabs/MonthTab/MonthTab';
 export {default as MonthTabItem} from './tabs/MonthTabItem/MonthTabItem';
+export {default as MonthTabItemEvent} from './tabs/MonthTabItemEvent/MonthTabItemEvent';
 export {default as MonthTabHeader} from './tabs/MonthTabHeader/MonthTabHeader';
 export {default as MonthTabHeaderItem} from './tabs/MonthTabHeaderItem/MonthTabHeaderItem';
 
@@ -36,3 +37,4 @@ export {default as DescriptionIcon} from './icons/DescriptionIcon';
 export {default as LabelIcon} from './icons/LabelIcon';
 export {default as TimeIcon} from './icons/TimeIcon';
 export {default as DropDownIcon} from './icons/DropDownIcon';
+export {default as EndIcon} from './icons/EndIcon';

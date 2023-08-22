@@ -1,0 +1,10 @@
+@import '@/colors.module';
+
+.container {
+  width: 100%;
+  font-size: 0.75rem;
+  padding: 0.1rem;
+  overflow: hidden;
+  color: $colorBackground;
+  margin-bottom: 0.25rem
+}

@@ -24,5 +24,7 @@ export const POST = async(req) => {
 
   return NextResponse.json({
     message: 'Event successfullt created!'
+  }, {
+    status: 200
   });
 }

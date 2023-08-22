@@ -3,6 +3,7 @@ import dayjs from 'dayjs';
 
 import styles from './MonthTabItem.module.scss';
 import { MONTHS_SHORT, DATE_FORMAT } from '@/helpers/Constants';
+import { MonthTabItemEvent } from '../..'
 
 const MonthTabBodyItem = ({index, item}) => {
   const {date, simpleDate, isActive, isToday, isFirst, events} = item;
@@ -16,6 +17,10 @@ const MonthTabBodyItem = ({index, item}) => {
       <div className={`${styles.title} ${colorsStyle} ${isFirst && styles.first}`}>
         {isFirst && `${MONTHS_SHORT[monthIndex]} `}
         {simpleDate}
+      </div>
+
+      <div className={styles.eventsContainer}>
+        {events.map((event, index) => <MonthTabItemEvent key={index} event={event} />)}
       </div>
     </div>
   )

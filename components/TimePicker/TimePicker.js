@@ -2,24 +2,28 @@ import React, { useState } from 'react';
 import styles from './TimePicker.module.scss';
 import {TIME_OPTIONS} from '@/helpers/Constants';
 import { TimePickerOption } from '..';
+import { useDispatch, useSelector } from 'react-redux';
+import { setPopup } from '@/redux/features/popupSlice';
 
-const TimePicker = ({value, onChange}) => {
-  const [showMenu, setShowMenu] = useState(false);
+const TimePicker = ({name, value, onChange}) => {
+  const popupName = `timePicker-${name}`;
+  const dispatch = useDispatch();
+  const popup = useSelector(state => state.popup)
 
   const handleOnOptionClick = (option) => {
     onChange(option);
-    setShowMenu(false);
+    dispatch(setPopup(null));
   }
 
   return (
     <div className={styles.container}>
       <button
-        onClick={() => setShowMenu(prev => !prev)}
+        onClick={() => dispatch(setPopup(popup == popupName ? null : popupName))}
         className={styles.btn}>
         {value}
       </button>
 
-      {showMenu &&
+      {popup == popupName &&
         <div className={styles.optionsContainer}>
           {TIME_OPTIONS.map(o => <TimePickerOption key={o} option={o} onClick={handleOnOptionClick}/>)}
         </div>

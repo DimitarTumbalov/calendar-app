@@ -2,18 +2,21 @@ import React, { useState } from 'react';
 
 import styles from './DatePicker.module.scss';
 import { SmallCalendar } from '..';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import dayjs from 'dayjs';
 import { PRETTY_DATE_FORMAT } from '@/helpers/Constants';
+import { setPopup } from '@/redux/features/popupSlice';
 
-const DatePicker = ({value, onChange}) => {
+const DatePicker = ({name, value, onChange}) => {
+  const popupName = `datePicker-${name}`;
+  const dispatch = useDispatch();
+  const popup = useSelector(state => state.popup);
   const calendar = useSelector(state => state.calendar);
   const [localCalendar, setLocalCalendar] = useState(calendar);
-  const [showCalendar, setShowCalendar] = useState(false);
 
   const handleOnCalendarSelect = (date) => {
     onChange(date);
-    setShowCalendar(false);
+    dispatch(setPopup(null));
   }
 
   const handleOnCalendarPrev = () => {
@@ -57,12 +60,12 @@ const DatePicker = ({value, onChange}) => {
   return (
     <div className={styles.container}>
       <button
-        onClick={() => setShowCalendar(prev => !prev)} 
+        onClick={() => dispatch(setPopup(popup == popupName ? null : popupName))} 
         className={styles.btn}>
         {dayjs(value).format(PRETTY_DATE_FORMAT)}
       </button>
       {
-        showCalendar && 
+        popup == popupName && 
         <div className={styles.calendarContainer}>
           <SmallCalendar 
             onSelect={handleOnCalendarSelect}

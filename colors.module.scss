@@ -5,7 +5,13 @@ $colorText: #414548;
 $colorTextSecondary: #70757a;
 $colorBorder: #dadce0;
 $colorTransparent: transparent;
-$colorHover: lightgray;
+$colorHovered: lightgray;
+
+$colorLabel0: #039be5;
+$colorLabel1: #d50000;
+$colorLabel2: #33b679;
+$colorLabel3: #f6bf26;
+$colorLabel4: #7986cb;
 
 :export {
   colorPrimary: $colorPrimary;
@@ -15,5 +21,10 @@ $colorHover: lightgray;
   colorTextSecondary: $colorTextSecondary;
   colorBorder: $colorBorder;
   colorTransparent: $colorTransparent;
-  colorHover: $colorHover
+  colorHovered: $colorHovered;
+  colorLabel0: $colorLabel0;
+  colorLabel1: $colorLabel1;
+  colorLabel2: $colorLabel2;
+  colorLabel3: $colorLabel3;
+  colorLabel4: $colorLabel4;
 }

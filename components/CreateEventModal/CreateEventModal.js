@@ -5,8 +5,9 @@ import dayjs from 'dayjs';
 import styles from './CreateEventModal.module.scss';
 import colors from '../../colors.module.scss';
 import { createEvent } from '@/services/eventService';
-import { CreateEventModalFooter, CreateEventModalHeader, LabelIcon, TimeIcon, DescriptionIcon, DatePicker, TimePicker } from '..';
+import { CreateEventModalFooter, CreateEventModalHeader, LabelIcon, TimeIcon, DescriptionIcon, DatePicker, TimePicker, EndIcon } from '..';
 import { setModal } from '@/redux/features/modalSlice';
+import { addEvent } from '@/redux/features/eventsSlice';
 import { DATE_FORMAT, TIME_FORMAT } from '@/helpers/Constants';
 
 const CreateEventModal = ({show}) => {
@@ -15,6 +16,8 @@ const CreateEventModal = ({show}) => {
   const [title, setTitle] = useState('');
   const [startDate, setStartDate] = useState(curDate.format(DATE_FORMAT));
   const [startTime, setStartTime] = useState(curDate.format(TIME_FORMAT));
+  const [endDate, setEndDate] = useState(curDate.format(DATE_FORMAT));
+  const [endTime, setEndTime] = useState(curDate.format(TIME_FORMAT));
   const [description, setDescription] = useState('');
   const [colorId, setColorId] = useState(0);
 
@@ -26,17 +29,30 @@ const CreateEventModal = ({show}) => {
     setStartTime(time)
   }
 
+  const handleEndDateOnSelect = (date) => {
+    setEndDate(date);
+  }
+  
+  const handleEndTimeOnSelect = (time) => {
+    setEndTime(time)
+  }
+
   const handleSaveEvent = () => {
     const event = {
       title,
-      // startTime: ,
-      // endTime: ,
+      startDate,
+      startTime,
+      endDate,
+      endTime,
       description,
       colorId
     }
 
     createEvent(event).then(res => res.json())
-      .then(() => dispatch(setModal(null)))
+      .then(data => {
+        dispatch(setModal(null));
+        dispatch(addEvent(event));
+      })
       .catch(err => console.log(err))
   }
 
@@ -62,13 +78,30 @@ const CreateEventModal = ({show}) => {
               height='1.25rem'
               color={colors.colorTextSecondary}/>
             <DatePicker
+              name='startDate'
               value={startDate} 
               onChange={handleStartDateOnSelect}/>
             <TimePicker 
+              name='startTime'
               value={startTime}
               onChange={handleStartTimeOnSelect}
               />
-            
+          </div>
+
+          <div className={styles.row}>
+            <EndIcon 
+              className={styles.icon}
+              height='1.25rem'
+              color={colors.colorTextSecondary}/>
+            <DatePicker
+              name='endDate'
+              value={endDate} 
+              onChange={handleEndDateOnSelect}/>
+            <TimePicker 
+              name='endTime'
+              value={endTime}
+              onChange={handleEndTimeOnSelect}
+              />
           </div>
 
           <div className={styles.row}>

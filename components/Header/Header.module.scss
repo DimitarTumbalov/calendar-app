@@ -11,7 +11,7 @@
   cursor: pointer;
 
   &:hover {
-    background: $colorHover;
+    background: $colorHovered;
   }
 }
 
@@ -41,7 +41,7 @@
   justify-content: center;
 
   &:hover {
-    background: $colorHover;
+    background: $colorHovered;
   }
 }
 
@@ -92,7 +92,7 @@
     cursor: pointer;
 
     &:hover {
-      background: $colorHover;
+      background: $colorHovered;
     }
   }
 }

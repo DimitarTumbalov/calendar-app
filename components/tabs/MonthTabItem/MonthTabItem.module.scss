@@ -4,15 +4,15 @@
   box-sizing: border-box;
   border-bottom: 1px solid $colorBorder;
   display: flex;
-  flex-basis: calc(100% / 7);
   flex-direction: column;
-  align-items: center;
+  flex-basis: calc(100% / 7);
   text-align: center;
 }
 
 .title {
   display: flex;
   flex-direction: row;
+  align-self: center;
   align-items: center;
   justify-content: center;
   margin: 0.25rem;
@@ -25,7 +25,7 @@
   cursor: pointer;
 
   &:hover {
-    background: $colorHover;
+    background: $colorHovered;
   }
 }
 
@@ -48,4 +48,11 @@
 
 .rightBorder {
   border-right: 1px solid $colorBorder;
+}
+
+.eventsContainer {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  flex: 1;
 }
