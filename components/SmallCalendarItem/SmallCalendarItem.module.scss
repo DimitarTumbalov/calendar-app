@@ -18,14 +18,19 @@
 }
 
 .active {
-  color: $colorText
+  color: $colorText;
 }
 
 .inactive {
-  color: $colorTextSecondary
+  color: $colorTextSecondary;
 }
 
 .today {
   background: $colorPrimary;
-  color: $colorBackground
+  color: $colorBackground;
+
+  &:hover {
+    background: $colorPrimary;
+    opacity: 0.75;
+  }
 }

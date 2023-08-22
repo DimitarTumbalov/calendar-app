@@ -10,6 +10,10 @@
   margin-bottom: 0.125rem;
   border-radius: 0.25rem;
   white-space: nowrap;
-  text-overflow: ellipsis; 
   text-align: start;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.75;
+  }
 }

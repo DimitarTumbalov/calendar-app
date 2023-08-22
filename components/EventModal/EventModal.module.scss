@@ -1,0 +1,84 @@
+@import '@/colors.module.scss';
+
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.modal {
+  background: $colorBackground;
+  border-radius: 0.5rem;
+  width: 30rem;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0.25rem 0.5rem $colorText;
+}
+
+.header {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 0.5rem;
+
+  button {
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    background: $colorTransparent;
+    border: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &:hover {
+      background: $colorHovered;
+    }
+  }
+}
+
+.body {
+  padding: 1rem 2rem 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.labelColor {
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 0.25rem;
+}
+
+.title {
+  color: $colorText;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.time {
+  color: $colorTextSecondary;
+  font-size: 1rem; 
+}
+
+.description {
+  color: $colorTextSecondary;
+  font-size: 1rem; 
+}

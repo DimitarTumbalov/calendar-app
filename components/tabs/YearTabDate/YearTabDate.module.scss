@@ -10,6 +10,7 @@
   justify-content: center;
   font-size: 0.8rem;
   font-weight: 500;
+  padding: 0.1rem;
   cursor: pointer;
 
   &:hover {
@@ -27,5 +28,10 @@
 
 .today {
   background: $colorPrimary;
-  color: $colorBackground
+  color: $colorBackground;
+
+  &:hover {
+    background: $colorPrimary;
+    opacity: 0.75;
+  }
 }

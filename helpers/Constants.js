@@ -23,20 +23,21 @@ export const WEEK_DAYS = [
   'SAT',
 ]
 
-export const MONTHS_SHORT = {
-  0: 'Jan', 
-  1: 'Feb', 
-  2: 'Mar', 
-  3: 'Apr', 
-  4: 'May', 
-  5: 'Jun',
-  6: 'Jul', 
-  7: 'Aug', 
-  8: 'Sep', 
-  9: 'Oct', 
-  10: 'Nov', 
-  11: 'Dec'
-}
+export const MONTHS_SHORT = [
+  'Jan', 
+  'Feb', 
+  'Mar', 
+  'Apr', 
+  'May', 
+  'Jun',
+  'Jul', 
+  'Aug', 
+  'Sep', 
+  'Oct', 
+  'Nov', 
+  'Dec'
+]
+
 
 export const MONTHS = [
   'January', 
@@ -89,8 +90,8 @@ export const REGEX = {
 }
 
 const curDate = dayjs();
-export const MIN_DATE_YEAR = curDate.subtract(100, 'year').year();
-export const MAX_DATE_YEAR = curDate.add(100, 'year').year()
+export const MIN_DATE_YEAR = 1970;
+export const MAX_DATE_YEAR = curDate.add(100, 'year').year();
 
 export const LABEL_COLORS = [
   colors.colorLabel0,

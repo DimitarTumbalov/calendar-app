@@ -4,7 +4,7 @@ import { TABS } from "@/helpers/Constants";
 
 const { createSlice } = require("@reduxjs/toolkit");
 
-const initialState = TABS[2];
+const initialState = TABS[1];
 
 const tabSlice = createSlice({
   name: 'tab',

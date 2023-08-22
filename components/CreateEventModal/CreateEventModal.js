@@ -12,7 +12,7 @@ import { addEvent } from '@/redux/features/eventsSlice';
 import { DATE_FORMAT, LABEL_COLORS, TIME_FORMAT } from '@/helpers/Constants';
 
 const CreateEventModal = ({show}) => {
-  const curDate = dayjs();
+  const curDate = dayjs().set('minute', 0).add(1, 'hour');
   const dispatch = useDispatch()
   const [title, setTitle] = useState('');
   const [startDate, setStartDate] = useState(curDate.format(DATE_FORMAT));
@@ -52,7 +52,7 @@ const CreateEventModal = ({show}) => {
     createEvent(event).then(res => res.json())
       .then(data => {
         dispatch(setModal(null));
-        dispatch(addEvent(event));
+        dispatch(addEvent(data.event));
       })
       .catch(err => console.log(err))
   }
@@ -61,7 +61,7 @@ const CreateEventModal = ({show}) => {
     return null;
 
   return (
-    <div className={styles.blur}>
+    <div className={styles.container}>
       <div className={styles.modal}>
         <CreateEventModalHeader/>
         

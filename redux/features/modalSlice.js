@@ -1,6 +1,6 @@
 const { createSlice } = require("@reduxjs/toolkit");
 
-const initialState = null;
+const initialState = 'event';
 
 const modalSlice = createSlice({
   name: 'modal',

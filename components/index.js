@@ -2,18 +2,21 @@ export {default as Header} from './Header/Header';
 export {default as SideMenu} from './SideMenu/SideMenu';
 export {default as CalendarLogo} from './CalendarLogo/CalendarLogo';
 
-export {default as CreateEventModal} from './CreateEventModal/CreateEventModal';
-export {default as CreateEventModalHeader} from './CreateEventModalHeader/CreateEventModalHeader';
-export {default as CreateEventModalFooter} from './CreateEventModalFooter/CreateEventModalFooter';
-
 export {default as SmallCalendar} from './SmallCalendar/SmallCalendar';
 export {default as SmallCalendarWeekName} from './SmallCalendarWeekName/SmallCalendarWeekName';
 export {default as SmallCalendarItem} from './SmallCalendarItem/SmallCalendarItem';
 export {default as SmallCalendarHeader} from './SmallCalendarHeader/SmallCalendarHeader';
 
+//POPUPS
 export {default as DatePicker} from './DatePicker/DatePicker';
 export {default as TimePicker} from './TimePicker/TimePicker';
 export {default as TimePickerOption} from './TimePickerOption/TimePickerOption';
+
+//MODALS
+export {default as CreateEventModal} from './CreateEventModal/CreateEventModal';
+export {default as CreateEventModalHeader} from './CreateEventModalHeader/CreateEventModalHeader';
+export {default as CreateEventModalFooter} from './CreateEventModalFooter/CreateEventModalFooter';
+export {default as EventModal} from './EventModal/EventModal';
 
 //TABS
 export {default as DayTab} from './tabs/DayTab/DayTab';
@@ -41,3 +44,4 @@ export {default as LabelIcon} from './icons/LabelIcon';
 export {default as TimeIcon} from './icons/TimeIcon';
 export {default as DropDownIcon} from './icons/DropDownIcon';
 export {default as EndIcon} from './icons/EndIcon';
+export {default as EditIcon} from './icons/EditIcon';

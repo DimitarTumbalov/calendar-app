@@ -1,7 +1,6 @@
 @import '../../../colors.module.scss';
 
 .container {
-  border-bottom: 1px solid $colorBorder;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -43,7 +42,12 @@
 
 .today {
   background: $colorPrimary;
-  color: $colorBackground
+  color: $colorBackground;
+
+  &:hover {
+    background: $colorPrimary;
+    opacity: 0.75;
+  }
 }
 
 .eventsContainer {
@@ -63,4 +67,9 @@
   color: $colorText;
   margin-bottom: 0.125rem;
   text-align: start;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

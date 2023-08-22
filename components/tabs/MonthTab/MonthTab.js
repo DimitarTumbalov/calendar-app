@@ -40,6 +40,7 @@ const MonthTab = () => {
               <MonthTabItem 
                 key={index} 
                 item={item} 
+                index={index}
                 onClick={handleOnDateClick}/>)
           }
         </div>
