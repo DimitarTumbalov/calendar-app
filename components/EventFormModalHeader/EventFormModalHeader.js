@@ -2,12 +2,12 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import styles from './CreateEventModalHeader.module.scss';
+import styles from './EventFormModalHeader.module.scss';
 import colors from '../../colors.module.scss';
 import { setModal } from '@/redux/features/modalSlice';
 import { CloseIcon } from '..';
 
-const CreateEventModalHeader = () => {
+const EventFormModalHeader = () => {
   const dispatch = useDispatch();
 
   const handleClose = () => {
@@ -28,4 +28,4 @@ const CreateEventModalHeader = () => {
   )
 }
 
-export default CreateEventModalHeader
+export default EventFormModalHeader;

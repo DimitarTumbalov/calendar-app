@@ -13,9 +13,8 @@ export {default as TimePicker} from './TimePicker/TimePicker';
 export {default as TimePickerOption} from './TimePickerOption/TimePickerOption';
 
 //MODALS
-export {default as CreateEventModal} from './CreateEventModal/CreateEventModal';
-export {default as CreateEventModalHeader} from './CreateEventModalHeader/CreateEventModalHeader';
-export {default as CreateEventModalFooter} from './CreateEventModalFooter/CreateEventModalFooter';
+export {default as EventFormModal} from './EventFormModal/EventFormModal';
+export {default as EventFormModalHeader} from './EventFormModalHeader/EventFormModalHeader';
 export {default as EventModal} from './EventModal/EventModal';
 
 //TABS

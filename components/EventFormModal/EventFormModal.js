@@ -1,51 +1,71 @@
 'use client';
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import dayjs from 'dayjs';
 
-import styles from './CreateEventModal.module.scss';
+import styles from './EventFormModal.module.scss';
 import colors from '../../colors.module.scss';
 import { createEvent } from '@/services/eventService';
-import { CreateEventModalFooter, CreateEventModalHeader, LabelIcon, TimeIcon, DescriptionIcon, DatePicker, TimePicker, EndIcon } from '..';
+import { EventFormModalHeader, LabelIcon, TimeIcon, DescriptionIcon, DatePicker, TimePicker, EndIcon } from '..';
 import { setModal } from '@/redux/features/modalSlice';
 import { addEvent } from '@/redux/features/eventsSlice';
-import { DATE_FORMAT, LABEL_COLORS, TIME_FORMAT } from '@/helpers/Constants';
+import { DATE_FORMAT, DATE_TIME_FORMAT, LABEL_COLORS, REGEX, TIME_FORMAT } from '@/helpers/Constants';
 
-const CreateEventModal = ({show}) => {
-  const curDate = dayjs().set('minute', 0).add(1, 'hour');
+const EventFormModal = ({show}) => {
   const dispatch = useDispatch()
   const [title, setTitle] = useState('');
-  const [startDate, setStartDate] = useState(curDate.format(DATE_FORMAT));
-  const [startTime, setStartTime] = useState(curDate.format(TIME_FORMAT));
-  const [endDate, setEndDate] = useState(curDate.format(DATE_FORMAT));
-  const [endTime, setEndTime] = useState(curDate.format(TIME_FORMAT));
+  const startDateTime = dayjs().set('minute', 0).add(1, 'hour');
+  const endDateTime = dayjs().set('minute', 30).add(1, 'hour');
+  const [startDate, setStartDate] = useState(startDateTime.format(DATE_FORMAT));
+  const [startTime, setStartTime] = useState(startDateTime.format(TIME_FORMAT));
+  const [endDate, setEndDate] = useState(endDateTime.format(DATE_FORMAT));
+  const [endTime, setEndTime] = useState(endDateTime.format(TIME_FORMAT));
   const [description, setDescription] = useState('');
   const [colorId, setColorId] = useState(0);
 
-  const handleStartDateOnSelect = (date) => {
+  const isTitleValid = REGEX.EVENT_TITLE.test(title);
+  const isDescriptionValid = REGEX.EVENT_DESCRIPTION.test(description);
+  const areDatesValid = dayjs(`${startDate} ${startTime}`, DATE_TIME_FORMAT).isBefore(dayjs(`${endDate} ${endTime}`, DATE_TIME_FORMAT));
+
+  useEffect(() => {
+    if(!show){
+      setTitle('');
+      setDescription('');
+      setColorId(0);
+
+      const startDateTime = dayjs().set('minute', 0).add(1, 'hour');
+      const endDateTime = dayjs().set('minute', 30).add(1, 'hour');
+      setStartDate(startDateTime.format(DATE_FORMAT));
+      setStartTime(startDateTime.format(TIME_FORMAT));
+      setEndDate(endDateTime.format(DATE_FORMAT));
+      setEndTime(endDateTime.format(TIME_FORMAT));
+    }
+  }, [show])
+
+  const handleOnStartDateSelect = (date) => {
     setStartDate(date);
   }
   
-  const handleStartTimeOnSelect = (time) => {
+  const handleOnStartTimeSelect = (time) => {
     setStartTime(time)
   }
 
-  const handleEndDateOnSelect = (date) => {
+  const handleOnEndDateSelect = (date) => {
     setEndDate(date);
   }
   
-  const handleEndTimeOnSelect = (time) => {
+  const handleOnEndTimeSelect = (time) => {
     setEndTime(time)
   }
 
-  const handleSaveEvent = () => {
+  const handleOnSaveEvent = () => {
     const event = {
-      title,
+      title: title.trim(),
       startDate,
       startTime,
       endDate,
       endTime,
-      description,
+      description: description.trim(),
       colorId
     }
 
@@ -63,10 +83,11 @@ const CreateEventModal = ({show}) => {
   return (
     <div className={styles.container}>
       <div className={styles.modal}>
-        <CreateEventModalHeader/>
+        <EventFormModalHeader/>
         
         <div className={styles.body}>
           <input 
+            maxLength={50}
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Title"
@@ -81,11 +102,11 @@ const CreateEventModal = ({show}) => {
             <DatePicker
               name='startDate'
               value={startDate} 
-              onChange={handleStartDateOnSelect}/>
+              onChange={handleOnStartDateSelect}/>
             <TimePicker 
               name='startTime'
               value={startTime}
-              onChange={handleStartTimeOnSelect}
+              onChange={handleOnStartTimeSelect}
               />
           </div>
 
@@ -97,11 +118,11 @@ const CreateEventModal = ({show}) => {
             <DatePicker
               name='endDate'
               value={endDate} 
-              onChange={handleEndDateOnSelect}/>
+              onChange={handleOnEndDateSelect}/>
             <TimePicker 
               name='endTime'
               value={endTime}
-              onChange={handleEndTimeOnSelect}
+              onChange={handleOnEndTimeSelect}
               />
           </div>
 
@@ -111,6 +132,7 @@ const CreateEventModal = ({show}) => {
               height='1.25rem'
               color={colors.colorTextSecondary}/>
             <textarea 
+              maxLength={250}
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               className={styles.descriptionTA}
@@ -136,10 +158,18 @@ const CreateEventModal = ({show}) => {
           </div>
         </div>
 
-        <CreateEventModalFooter onSave={handleSaveEvent}/>
+        <div className={styles.footer}>
+          <button 
+            disabled={!isTitleValid || !isDescriptionValid || !areDatesValid}
+            className={styles.saveBtn}
+            onClick={() => handleOnSaveEvent()}>
+            Save
+          </button>
+        </div>
+
       </div>
     </div>
   )
 }
 
-export default CreateEventModal
+export default EventFormModal;

@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './page.module.scss';
-import { DayTab, MonthTab, YearTab, CreateEventModal, Header, SideMenu, EventModal } from '@/components';
+import { DayTab, MonthTab, YearTab, EventFormModal, Header, SideMenu, EventModal } from '@/components';
 import { TABS } from '@/helpers/Constants';
 import { setEvents } from '@/redux/features/eventsSlice';
 import { getEvents } from '@/services/eventService';
@@ -31,7 +31,7 @@ export default function Home() {
         {tab == TABS[2] && <YearTab /> }
       </div>
       <EventModal show={modal == 'event'}/>
-      <CreateEventModal show={modal == 'createEvent'}/>
+      <EventFormModal show={modal == 'createEvent'}/>
     </main>
   )
 }
