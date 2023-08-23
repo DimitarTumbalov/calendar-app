@@ -20,6 +20,7 @@ const SideMenu = () => {
   }, [calendar])
 
   const handleCreateBtnClick = () => {
+    dispatch(setCalendar(dayjs().valueOf()));
     dispatch(setModal('createEvent'));
   }
 

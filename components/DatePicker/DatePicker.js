@@ -1,9 +1,9 @@
 'use client';
 import React, { useState } from 'react';
-import styles from './DatePicker.module.scss';
-import { SmallCalendar } from '..';
 import { useDispatch, useSelector } from 'react-redux';
 import dayjs from 'dayjs';
+import styles from './DatePicker.module.scss';
+import { SmallCalendar } from '..';
 import { calendarEqualityFn } from '@/redux/features/calendarSlice';
 import { PRETTY_DATE_FORMAT } from '@/helpers/Constants';
 import { setPopup } from '@/redux/features/popupSlice';
@@ -43,8 +43,8 @@ const DatePicker = ({name, value, onChange}) => {
         popup == popupName && 
         <div className={styles.calendarContainer}>
           <SmallCalendar 
-            onSelect={handleOnCalendarSelect}
             calendar={localCalendar}
+            onSelect={handleOnCalendarSelect}
             onPrev={handleOnCalendarPrev}
             onNext={handleOnCalendarNext}/>
         </div>

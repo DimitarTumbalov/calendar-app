@@ -9,8 +9,10 @@
   color: $colorBackground;
   margin-bottom: 0.125rem;
   border-radius: 0.25rem;
-  white-space: nowrap;
   text-align: start;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
   cursor: pointer;
 
   &:hover {

@@ -1,32 +1,42 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import dayjs from 'dayjs';
 
 import styles from './EventFormModal.module.scss';
 import colors from '../../colors.module.scss';
 import { createEvent } from '@/services/eventService';
-import { EventFormModalHeader, LabelIcon, TimeIcon, DescriptionIcon, DatePicker, TimePicker, EndIcon } from '..';
+import { LabelIcon, TimeIcon, DescriptionIcon, DatePicker, TimePicker, EndIcon, CloseIcon } from '..';
 import { setModal } from '@/redux/features/modalSlice';
 import { addEvent } from '@/redux/features/eventsSlice';
 import { DATE_FORMAT, DATE_TIME_FORMAT, LABEL_COLORS, REGEX, TIME_FORMAT } from '@/helpers/Constants';
 import { setPopup } from '@/redux/features/popupSlice';
+import { calendarEqualityFn } from '@/redux/features/calendarSlice';
 
 const EventFormModal = ({show}) => {
   const dispatch = useDispatch()
+  const calendar = useSelector(state => dayjs(state.calendar), calendarEqualityFn);
   const [title, setTitle] = useState('');
-  const startDateTime = dayjs().set('minute', 0).add(1, 'hour');
-  const endDateTime = dayjs().set('minute', 30).add(1, 'hour');
-  const [startDate, setStartDate] = useState(startDateTime.format(DATE_FORMAT));
-  const [startTime, setStartTime] = useState(startDateTime.format(TIME_FORMAT));
-  const [endDate, setEndDate] = useState(endDateTime.format(DATE_FORMAT));
-  const [endTime, setEndTime] = useState(endDateTime.format(TIME_FORMAT));
+  const [startDate, setStartDate] = useState(null);
+  const [startTime, setStartTime] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+  const [endTime, setEndTime] = useState(null);
   const [description, setDescription] = useState('');
   const [colorId, setColorId] = useState(0);
 
   const isTitleValid = REGEX.EVENT_TITLE.test(title);
   const isDescriptionValid = REGEX.EVENT_DESCRIPTION.test(description);
   const areDatesValid = dayjs(`${startDate} ${startTime}`, DATE_TIME_FORMAT).isBefore(dayjs(`${endDate} ${endTime}`, DATE_TIME_FORMAT));
+
+  useEffect(() => {
+    const startDateTime = dayjs(calendar).set('hour', 14).set('minute', 0);
+    const endDateTime = dayjs(calendar).set('hour', 14).set('minute', 30);
+
+    setStartDate(startDateTime.format(DATE_FORMAT));
+    setStartTime(startDateTime.format(TIME_FORMAT));
+    setEndDate(endDateTime.format(DATE_FORMAT));
+    setEndTime(endDateTime.format(TIME_FORMAT));
+  }, [calendar])
 
   useEffect(() => {
     if(!show){
@@ -64,38 +74,49 @@ const EventFormModal = ({show}) => {
 
     createEvent(event).then(res => res.json())
       .then(data => {
-        dispatch(setModal(null));
         dispatch(addEvent(data.event));
+        closeModal();
       })
       .catch(err => console.log(err))
   }
 
   const resetForm = () => {
     setTitle('');
-      // Reset Inputs
+      //Reset Inputs
       setDescription('');
       setColorId(0);
 
-      //Reset Date and Time Pickers
-      const startDateTime = dayjs().set('minute', 0).add(1, 'hour');
-      const endDateTime = dayjs().set('minute', 30).add(1, 'hour');
-      setStartDate(startDateTime.format(DATE_FORMAT));
-      setStartTime(startDateTime.format(TIME_FORMAT));
-      setEndDate(endDateTime.format(DATE_FORMAT));
-      setEndTime(endDateTime.format(TIME_FORMAT));
-
       //Hide Popups
       dispatch(setPopup(null))
+  }
+
+  const closeModal = () => {
+    dispatch(setModal(null));
   }
 
   if(!show)
     return null;
 
   return (
-    <div className={styles.container}>
-      <div className={styles.modal}>
-        <EventFormModalHeader/>
+    <div  
+      onClick={() => closeModal()} 
+      className={styles.container}>
+      <div
+        onClick={(e) => e.stopPropagation()} 
+        className={styles.modal}>
+        {/* HEADER */}
+        <div className={styles.header}>
+          <p className={styles.headerTitle}>
+            Event
+          </p>
+          <button
+            onClick={() => closeModal()} 
+            className={styles.closeBtn}>
+            <CloseIcon height={20} color={colors.colorText}/>
+          </button>
+        </div>
         
+        {/* BODY */}
         <div className={styles.body}>
           <input 
             maxLength={50}
@@ -169,6 +190,7 @@ const EventFormModal = ({show}) => {
           </div>
         </div>
 
+        {/* FOOTER */}
         <div className={styles.footer}>
           <button 
             disabled={!isTitleValid || !isDescriptionValid || !areDatesValid}
