@@ -15,22 +15,22 @@ const calendarSlice = createSlice({
       return action.payload;
     },
     decreaseDay: (state) => {
-      return dayjs(state).subtract(1, 'day').valueOf();;
+      return dayjs(state).subtract(1, 'day').valueOf();
     },
     increaseDay: (state) => {
-      return dayjs(state).add(1, 'day').valueOf();;
+      return dayjs(state).add(1, 'day').valueOf();
     },
     decreaseMonth: (state) => {
-      return dayjs(state).subtract(1, 'month').valueOf();;
+      return dayjs(state).subtract(1, 'month').valueOf();
     },
     increaseMonth: (state) => {
-      return dayjs(state).add(1, 'month').valueOf();;
+      return dayjs(state).add(1, 'month').valueOf();
     },
     decreaseYear: (state) => {
-      return dayjs(state).subtract(1, 'year').valueOf();;
+      return dayjs(state).subtract(1, 'year').valueOf();
     },
     increaseYear: (state) => {
-      return dayjs(state).add(1, 'year').valueOf();;
+      return dayjs(state).add(1, 'year').valueOf();
     }
 
   }

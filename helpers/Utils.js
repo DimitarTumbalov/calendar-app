@@ -63,6 +63,5 @@ export const generateCalendarMonth = (year, month) => {
   if(itemToday)
     itemToday.isToday = true;
 
-  // console.log(calendar)
   return calendar;
 }
