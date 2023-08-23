@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './EventModal.module.scss';
 import colors from '@/colors.module.scss';
-import { CloseIcon, EditIcon, TimeIcon, EndIcon, DescriptionIcon, DeleteIcon } from '..';
+import { CloseIcon, TimeIcon, EndIcon, DescriptionIcon, DeleteIcon } from '..';
 import { setSelectedEvent } from '@/redux/features/selectedEventSlice';
 import { setModal } from '@/redux/features/modalSlice';
 import { removeEvent } from '@/redux/features/eventsSlice';
@@ -38,13 +38,6 @@ const EventModal = ({show}) => {
           <button
             onClick={() => handleOnDelete()}>
             <DeleteIcon
-              height='1.3rem'
-              color={colors.colorTextSecondary}/>
-          </button>
-
-          <button
-            onClick={() => {}}>
-            <EditIcon 
               height='1.3rem'
               color={colors.colorTextSecondary}/>
           </button>
@@ -89,9 +82,9 @@ const EventModal = ({show}) => {
           {event?.description && 
             <div className={styles.row}>
               <DescriptionIcon height='1.3rem' color={colors.colorTextSecondary}/>
-              <p className={styles.description}>
+              <div className={styles.description}>
                 {event?.description}
-              </p>
+              </div>
             </div>
           }
 

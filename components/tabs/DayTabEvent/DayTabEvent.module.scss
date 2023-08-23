@@ -21,6 +21,8 @@
 .title {
   @include text;
   font-size: 1.4rem;
+  text-overflow: ellipsis;
+  overflow: hidden
 }
 
 .duration {
