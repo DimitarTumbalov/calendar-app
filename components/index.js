@@ -4,7 +4,7 @@ export {default as CalendarLogo} from './CalendarLogo/CalendarLogo';
 
 export {default as SmallCalendar} from './SmallCalendar/SmallCalendar';
 export {default as SmallCalendarWeekName} from './SmallCalendarWeekName/SmallCalendarWeekName';
-export {default as SmallCalendarItem} from './SmallCalendarItem/SmallCalendarItem';
+export {default as SmallCalendarDate} from './SmallCalendarDate/SmallCalendarDate';
 export {default as SmallCalendarHeader} from './SmallCalendarHeader/SmallCalendarHeader';
 
 //POPUPS

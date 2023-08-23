@@ -96,3 +96,7 @@ export const LABEL_COLORS = [
   colors.colorLabel3,
   colors.colorLabel4
 ]
+
+export const SCREEN_BREAKPOINTS = {
+  MEDIUM: 768
+}

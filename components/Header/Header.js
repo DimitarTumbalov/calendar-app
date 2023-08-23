@@ -8,14 +8,16 @@ import styles from './Header.module.scss';
 import colors from '../../colors.module.scss';
 import { setCalendar, decreaseDay, increaseDay, decreaseMonth, increaseMonth, decreaseYear, increaseYear, calendarEqualityFn } from '@/redux/features/calendarSlice';
 import { setTab } from '@/redux/features/tabSlice';
-import { TABS, MONTHS } from '@/helpers/Constants';
+import { TABS, MONTHS, SCREEN_BREAKPOINTS } from '@/helpers/Constants';
 import { CalendarLogo,  ArrowLeftIcon, ArrowRightIcon, DropDownIcon } from '..';
+import { useMediaQuery } from '@/hooks';
 
 const Header = () => {
   const dispatch = useDispatch()
   const calendar = useSelector(state => dayjs(state.calendar), calendarEqualityFn);
   const tab = useSelector(state => state.tab);
   const [showTabsMenu, setShowTabsMenu] = useState(false);
+  const screenMedium = useMediaQuery(SCREEN_BREAKPOINTS.MEDIUM);
 
   const handleTodayClick = () => {
     dispatch(setCalendar(dayjs().valueOf()));
@@ -48,36 +50,38 @@ const Header = () => {
 
   return (
     <div className={styles.container}>
-      <CalendarLogo />
+      {!screenMedium && <CalendarLogo />}
       
-      <button
-        onClick={() => handleTodayClick()} 
-        className={styles.todayBtn}>
-        Today
-      </button>
+      <div className={styles.conrolsContainer}>
+        <button
+          onClick={() => handleTodayClick()} 
+          className={styles.todayBtn}>
+          Today
+        </button>
 
-      <button
-        className={`${styles.calendarNavBtn} ${styles.calendarLeftNavBtn}`} 
-        onClick={() => handlePrevBtnClick()}
-        >
-        <ArrowLeftIcon height='1.5rem' color={colors.colorText} />
-      </button>
-      
-      <button
-        className={styles.calendarNavBtn} 
-        onClick={() => handleNextBtnClick()}
-        >
-        <ArrowRightIcon height='1.5rem' color={colors.colorText} />
-      </button>
+        <button
+          className={`${styles.calendarNavBtn} ${styles.calendarLeftNavBtn}`} 
+          onClick={() => handlePrevBtnClick()}
+          >
+          <ArrowLeftIcon height='1.5rem' color={colors.colorText} />
+        </button>
+        
+        <button
+          className={styles.calendarNavBtn} 
+          onClick={() => handleNextBtnClick()}
+          >
+          <ArrowRightIcon height='1.5rem' color={colors.colorText} />
+        </button>
 
-      {tab == TABS[0] &&
+        {tab == TABS[0] &&
         <p className={styles.calendarMonth}>{MONTHS[calendar.month()]} {calendar.date()}, {calendar.year()}</p>}
 
-      {tab == TABS[1] &&
-        <p className={styles.calendarMonth}>{MONTHS[calendar.month()]} {calendar.year()}</p>}
+        {tab == TABS[1] &&
+          <p className={styles.calendarMonth}>{MONTHS[calendar.month()]} {calendar.year()}</p>}
 
-      {tab == TABS[2] &&
-        <p className={styles.calendarMonth}>{calendar.year()}</p>}
+        {tab == TABS[2] &&
+          <p className={styles.calendarMonth}>{calendar.year()}</p>}
+      </div>
 
       <div className={styles.tabsContainer}>
         <button

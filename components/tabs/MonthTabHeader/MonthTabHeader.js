@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import styles from './MonthTabHeader.module.scss';
 import { WEEK_DAYS } from '@/helpers/Constants';

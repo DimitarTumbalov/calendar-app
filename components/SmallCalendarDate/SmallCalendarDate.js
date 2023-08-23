@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './SmallCalendarItem.module.scss';
+import styles from './SmallCalendarDate.module.scss';
 
-const SmallCalendarItem = ({item, onClick}) => {
+const SmallCalendarDate = ({item, onClick}) => {
   const { simpleDate, isActive, isToday } = item;
   const activeClass = isActive ? styles.active : styles.inactive;
   const colorsStyle = isToday ? styles.today : activeClass;
@@ -15,4 +15,4 @@ const SmallCalendarItem = ({item, onClick}) => {
   )
 }
 
-export default SmallCalendarItem;
+export default SmallCalendarDate;

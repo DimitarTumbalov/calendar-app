@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import styles from './SmallCalendar.module.scss';
 import { generateCalendarMonth } from '@/helpers/Utils';
-import { SmallCalendarItem, SmallCalendarHeader, SmallCalendarWeekName } from '..';
+import { SmallCalendarDate, SmallCalendarHeader, SmallCalendarWeekName } from '..';
 import { WEEK_DAYS_SHORT } from '@/helpers/Constants';
 
 const SmallCalendar = ({
@@ -25,7 +25,7 @@ const SmallCalendar = ({
       </div>
       <div className={styles.content}>
         {
-          monthData.map((item, index) => <SmallCalendarItem key={index} item={item} onClick={onSelect}/>)
+          monthData.map((item, index) => <SmallCalendarDate key={index} item={item} onClick={onSelect}/>)
         }
       </div>
     </div>

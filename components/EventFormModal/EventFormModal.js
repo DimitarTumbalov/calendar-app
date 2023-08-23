@@ -10,6 +10,7 @@ import { EventFormModalHeader, LabelIcon, TimeIcon, DescriptionIcon, DatePicker,
 import { setModal } from '@/redux/features/modalSlice';
 import { addEvent } from '@/redux/features/eventsSlice';
 import { DATE_FORMAT, DATE_TIME_FORMAT, LABEL_COLORS, REGEX, TIME_FORMAT } from '@/helpers/Constants';
+import { setPopup } from '@/redux/features/popupSlice';
 
 const EventFormModal = ({show}) => {
   const dispatch = useDispatch()
@@ -29,21 +30,13 @@ const EventFormModal = ({show}) => {
 
   useEffect(() => {
     if(!show){
-      setTitle('');
-      setDescription('');
-      setColorId(0);
-
-      const startDateTime = dayjs().set('minute', 0).add(1, 'hour');
-      const endDateTime = dayjs().set('minute', 30).add(1, 'hour');
-      setStartDate(startDateTime.format(DATE_FORMAT));
-      setStartTime(startDateTime.format(TIME_FORMAT));
-      setEndDate(endDateTime.format(DATE_FORMAT));
-      setEndTime(endDateTime.format(TIME_FORMAT));
+      resetForm();
     }
   }, [show])
 
   const handleOnStartDateSelect = (date) => {
     setStartDate(date);
+    setEndDate(date);
   }
   
   const handleOnStartTimeSelect = (time) => {
@@ -75,6 +68,24 @@ const EventFormModal = ({show}) => {
         dispatch(addEvent(data.event));
       })
       .catch(err => console.log(err))
+  }
+
+  const resetForm = () => {
+    setTitle('');
+      // Reset Inputs
+      setDescription('');
+      setColorId(0);
+
+      //Reset Date and Time Pickers
+      const startDateTime = dayjs().set('minute', 0).add(1, 'hour');
+      const endDateTime = dayjs().set('minute', 30).add(1, 'hour');
+      setStartDate(startDateTime.format(DATE_FORMAT));
+      setStartTime(startDateTime.format(TIME_FORMAT));
+      setEndDate(endDateTime.format(DATE_FORMAT));
+      setEndTime(endDateTime.format(TIME_FORMAT));
+
+      //Hide Popups
+      dispatch(setPopup(null))
   }
 
   if(!show)
